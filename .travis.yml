@@ -6,10 +6,10 @@ install: gem install jekyll html-proofer jekyll-sitemap
 script: scripts/build.sh
 
 # branch whitelist
-branches:
-  only:
-  - gh-pages     # test the gh-pages branch
-  - /pages-(.*)/ # test every branch which starts with "pages-"
+#branches:
+#  only:
+#  - gh-pages     # test the gh-pages branch
+#  - /pages-(.*)/ # test every branch which starts with "pages-"
 
 env:
   global:
@@ -19,5 +19,5 @@ deploy:
   skip_cleanup: true
   provider: script
   script: scripts/deploy.sh
-  on:
-    branch: gh-pages
+  #on:
+  #  branch: gh-pages
