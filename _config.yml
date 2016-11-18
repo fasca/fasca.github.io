@@ -1,0 +1,15 @@
+# Site Settings
+title: Titre
+email: unmail@mail.com
+description: >
+  Une description.
+baseurl: ""
+url: ""
+#twitter_username: 
+github_username: fasca
+# Build Settings
+sass:
+  sass_dir: _sass
+include: ['_pages']
+kramdown:
+  input: GFM
