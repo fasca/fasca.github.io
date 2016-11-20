@@ -1,3 +1,40 @@
+# Blog en Jekyll
+
+* synchroniser votre site avec git sur *GitHub*
+* générer le site à la volée et le servir avec *GitHub Pages*
+* rédiger directement ses articles en ligne grâce à [*Prose*](prose.io)
+* tester la compilation, le HTML et les liens avec [*Travis*](https://travis-ci.org/)
+* incorporer des commentaires en JS avec [*Disqus*](https://disqus.com/)
+
+## Doc Jekyll (Github)
+* [Doc Jekyll in Github](https://github.com/jekyll/jekyll/blob/master/docs/_docs/continuous-integration.md)
+
+## Jekyll website
+* [Jekyllrb](http://jekyllrb.com)
+
+## Help about Jekyll (stackoverflow-like)
+* [Talk Jekyllrb](https://talk.jekyllrb.com)
+
+## Liquid
+* [Liquid basics](https://help.shopify.com/themes/liquid/basics)
+* [Liquid for Designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
+* [Shopify Liquid Github](https://github.com/Shopify/liquid/wiki)
+
+## Tuto about Jekyll
+* [Make a Static Website with Jekyll](https://www.taniarascia.com/make-a-static-website-with-jekyll/)
+* [Site statique avec Jekyll](https://www.sylvaindurand.fr/site-statique-avec-jekyll/)
+* [Servir son site avec cloudfront](https://www.sylvaindurand.fr/servir-son-site-avec-cloudfront/)
+* [Utiliser Github pour servir Jekyll](https://www.sylvaindurand.fr/utiliser-github-pour-servir-jekyll/)
+* [Guide de démarrage : créer un blog statique avec jekyll](http://www.toam.fr/20-05-2013-guide-demarrage-jekyll/)
+* [Getting Started with Jekyll](https://scotch.io/tutorials/getting-started-with-jekyll-plus-a-free-bootstrap-3-starter-theme)
+* [Créer un blog statique Jekyll](https://www.grafikart.fr/tutoriels/html-css/jekyll-505)
+
+## Color Hexa
+* [color-hex](http://www.color-hex.com/color/008b8b)
+
+----
+
+
 # Space Jekyll
 
 LA COULEUR BACKGROUND assets/css/main.css LIGNE CONTENANT .page-header{background:#5d4d7a;height:100%;}
