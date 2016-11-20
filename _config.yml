@@ -1,11 +1,12 @@
 # Site Settings
-title: Titre
-email: unmail@mail.com
+title: MyMemo
+email: fascamaker.factory@gmail.com
 description: >
-  Une description.
-baseurl: ""
-url: ""
-#twitter_username: 
+  Une description bref de ce site, ceci est un blog, un mémo et un wiki perso portant en premier lieu sur le domaine de l'informatique.
+baseurl: "/mymemo/" # for test: remove string '/space-jekyll-templa' to ''
+#url: "" # for test: remove string 'http://victorvoid.github.io' to '' but in production: 'https://yourusername.github.io'
+url: "https://fasca.github.io"
+twitter_username: Fascamaker
 github_username: fasca
 # Build Settings
 sass:
