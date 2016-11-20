@@ -6,6 +6,9 @@
 * tester la compilation, le HTML et les liens avec [*Travis*](https://travis-ci.org/)
 * incorporer des commentaires en JS avec [*Disqus*](https://disqus.com/)
 
+# Github CHEAT SHEET
+[cheatsheet](http://ndpsoftware.com/git-cheatsheet.html#loc=stash;)
+
 ## Doc Jekyll (Github)
 * [Doc Jekyll in Github](https://github.com/jekyll/jekyll/blob/master/docs/_docs/continuous-integration.md)
 
