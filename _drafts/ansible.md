@@ -1,8 +1,14 @@
+---
+published: false
+---
 # Ansible
 
 ## Doc
 http://docs.ansible.com
 
+
+## site proposant des templates Ansible
+https://galaxy.ansible.com/
 
 * Le but c'est d'avoir des playbook ré-exécutables.
 
