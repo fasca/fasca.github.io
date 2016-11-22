@@ -1,5 +1,13 @@
 ---
 published: false
+layout: post
+date: 2016-11-22T17:08:08.000Z
+tags:
+  - backend
+  - sysadmin
+description: Mémo sur Ansible...
+categories: backend sysadmin
+serie: administration systeme
 ---
 # Ansible
 
