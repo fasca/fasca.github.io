@@ -108,6 +108,8 @@ $headers .= 'From: '.$nom.' '.$prenom.'<'.$expediteur.'>'."\n";
 if(mail($destinatiare,$objet,$message,$headers)){
 	echo "<h3>Votre message a bien été envoyé aux admins</h3>";
 	echo "<h3>Nous vous répondrons au plus vite.</h3>";
+}else{
+	echo "erreur";
 }
 
 
