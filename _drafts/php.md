@@ -1,3 +1,6 @@
+---
+published: false
+---
 du ternaire
 value="<?php echo $nom == 'val-par-def' ? '' : $nom; ?>" dans les formulaire pour garder la chaine précedement tapé malgrés le refrech
 
@@ -12,7 +15,7 @@ Pour garder les infos dans le formulaire, il faut utiliser les cookies:
 - '/' c'est le path, a partir de quel arbo ce cookie est dispo, ici la racine du site donc tt le site
 - 'blog.monsite.com' permet de rendre dispo le cookie que dans ce nom de domaine la, la chaine vide '' est utile pour rendre accessible à tout les sous domaine
 - le parametre suivant permet de déterminer si le cookie est sécurisé ou non, si c'est le cas (true) il faut créer le cookie depuis une page HTTPS
-- permet de déterminer si le cookie est dispo uniquement par php ou si il est dispo aussi par les langages client comme javascript donc  true empeche JS d'acceder aux cookie
+- permet de déterminer si le cookie est dispo uniquement par php ou si il est dispo aussi par les langages client comme javascript donc  true empeche JS d'acceder aux cookie car il est dispo juste pour php
 
 ex:
 if(isset($_GET['langue'])){
@@ -111,7 +114,3 @@ if(mail($destinatiare,$objet,$message,$headers)){
 }else{
 	echo "erreur";
 }
-
-
-
-
