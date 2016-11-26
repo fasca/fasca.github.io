@@ -585,6 +585,7 @@ INCLUDE ET REQUIRE
 
 include ne break pas la suite du script quand il retourne une erreur
 require break la suite du script quand il retourne une erreur
+header('Location: info.php'); header permet de spécifier l'en-tête HTTP string lors de l'envoi des fichiers HTML.
 
 - l'injection de script
 soit 2 fichiers php, info.php et plop.php
@@ -684,3 +685,8 @@ va generer une doc en lisant le script dans le dossir output/index.html
 on peut faire de la doc sur une classe, une fonction etc automatiquement avec phpDoc
 
 
+
+
+
+(verifier l'ancieneté de la session $_SESSION['last_access']=time(); )
+(tester avec if(time()-$_SESSION['last_access']>$session_timeout) )
