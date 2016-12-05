@@ -29,30 +29,28 @@ Ensuite dans le navigateur, il faut activier l'inspecteur d'elements, choisisez 
 
 
 ## ARCHITECTURE DU SITE
-* ne pas nommer simplement les fichier ex: config.php mieux utiliser un mot plus compliqué
+* ne pas nommer simplement les fichier tels que `config.php`, il vaut mieux obfusquer le nome du fichier avec un nom plus complexe.
 
-* l'obfuscation: il faut mettre les fichier sources du site à un niveau au dessus du dossier ou apache a acces
+* l'obfuscation: il faut mettre les fichier sources du site à un niveau au dessus du dossier où apache a acces.
 exemple:
+```bash
 |- src (dossier contenant les fichiers sources .php)
 |-vendor (dossier ? )
 |-web (dossier contenant le point d'entrée du site, ensuite utiliser des includes, des redirections...)
     |- app.php  (apache lit à partir d'ici)
+```
 
-RECUPERER DES LIBRAIRIES
+## RECUPERER DES LIBRAIRIES
 
-* aller dans le site www.phpclasses.org   permet de récuperer des classes déja faites (classe d'upload d'image, detection de spam, framework rest, 
-classe pour envoyer des mail etc...) puis on utiliser requiere et include...
+* aller dans le site www.phpclasses.org   permet de récuperer des classes déja faites (classe d'upload d'image, detection de spam, framework rest, classe pour envoyer des mail etc...) puis on utilise `require` et `include`...
 
 * si on utilise des auto-loader ou des namespace alors il faut ajouter un gestionnaire de modules
 
-* le gestionnaire de module composer:
-https://getcomposer.org
+* le gestionnaire de module composer: https://getcomposer.org
 
-* pour le telecharger, il faut le faire à la racine du projet, ce qui genere le fichier getcomposer.phar :
-  curl -sS https://getcomposer.org/installer | php
+* pour le telecharger, il faut le faire à la racine du projet, ce qui genere le fichier getcomposer.phar : `curl -sS https://getcomposer.org/installer | php`
 
-* pour l'executer, tapez : php composer.phar
- puis a la racine du projet en cours il faut creer un fichier "composer.json" sinon composer ne fonctionnera pas puis
+* pour l'executer, tapez `php composer.phar` puis à la racine du projet en cours il faut creer un fichier `composer.json` sinon composer ne fonctionnera pas, puis
 et mettre dedans:
 {
     "name" : "test",
