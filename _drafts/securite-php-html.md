@@ -1,34 +1,34 @@
 ---
 published: false
 ---
-PHP : La sécurité des applications
+# sécurité PHP
 
 
 Voir la configuration php:
+```php
 <?php
 phpinfo()
-
+```
 
 le fichier de conf de php:
-php.ini
+* **php.ini**
 
 
-LES ERREURS
-* on peut activer la ligne "display_errors = On" dans le fichier php.ini
+## LES ERREURS
+* on peut activer la ligne `display_errors = On` dans le fichier **php.ini**.
 
 * sinon dans le code mettre en début de fichier:
+```php
 error_reporting(E_ALL);
 ini_set('display_errors',true);
+```
 
-* pour afficher les erreurs il faut utiliser l'extention xdebug qui apporte une surcouche au reporting display_errors de PHP.
-s'il n'est pas present alors il faut l'activer en editant le fichier /usr/local/php5/php.d/50-extension-xdebug.ini
-et supprimer les commentaires puis redemarrer apache.
+* pour afficher les erreurs il faut utiliser l'extention **xdebug** qui apporte une surcouche au reporting display_errors de PHP. S'il n'est pas present alors il faut l'activer en editant le fichier **/usr/local/php5/php.d/50-extension-xdebug.ini** et supprimer les commentaires puis redemarrer apache.
 
-ENSUITE dans le navigateur, activier l'inspecteur d'elements, choisisez l'onglet NETWORK pour voir ce qui se passe coté http quand on 
-reçoit des requetes php
+Ensuite dans le navigateur, il faut activier l'inspecteur d'elements, choisisez l'onglet **NETWORK** pour voir ce qui se passe coté HTTP quand on reçoit des requetes PHP.
 
 
-ARCHITECTURE DU SITE
+## ARCHITECTURE DU SITE
 * ne pas nommer simplement les fichier ex: config.php mieux utiliser un mot plus compliqué
 
 * l'obfuscation: il faut mettre les fichier sources du site à un niveau au dessus du dossier ou apache a acces
