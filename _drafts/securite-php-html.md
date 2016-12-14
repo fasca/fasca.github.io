@@ -119,7 +119,7 @@ si on veut utiliser HTTPS sur notre serveur, on sera obligé d'acheter/generer u
 
 
 ## LA FAILLE XSS
-vise à exploiter une ingection de contenue dans le navigateur.
+vise à exploiter une injection de contenue dans le navigateur.
 On peut tester ces failles en lancant le navigateur en desactivant les protections XSS:
 ```bash
 open -a Google\ Chrome --args --disable-xss-auditor --disable-web-security
@@ -141,7 +141,7 @@ link
 (renvoie <a href="tata.com">Menu</a> (ici, on a remplacé le lien!)
 ```
 
-Donc pour inserer cette faille dans un lien il suffit d'ajouter les balises `script` apres la variable toto par exemple:
+Donc pour inserer cette faille dans un lien il suffit d'ajouter les balises `script` apres la variable **toto** par exemple:
 ```url
 mon-site-non-protege.com/info.php?name=toto<script>var link = document.getElementsByTagName('a')[0];link.href = 'tata.com'</script>
 ```
@@ -149,25 +149,26 @@ mon-site-non-protege.com/info.php?name=toto<script>var link = document.getElemen
 ### Comment s'en proteger ?
 il faut echapper les variables.
 ```php
-htmlspecialchars($_GET['name'])  -  Convertit les caractères spéciaux en entités HTML
-htmlentities($_GET['name']) - Convertit tous les caractères éligibles en entités HTML  (<- MIEUX, permet de concerver les é,è...)
+htmlspecialchars($_GET['name']) #Convertit les caractères spéciaux en entités HTML
+htmlentities($_GET['name']) #Convertit tous les caractères éligibles en entités HTML  (<- MIEUX, permet de concerver les é,è...)
 ```
-
  
-LES ATTAQUES CSRF
-permet d'inciter un utilisateur de lancer une attaque sans meme que l'utilisateur s'en rende compte.
-Il faut utiliser GET dans de l'affichage et non dans la soumission d'information
-Pour soumettre il faut utiliser la methode POST
-PUT est utilisé pour mettre à jour des informations
+ 
+## LES ATTAQUES CSRF
+Permet d'inciter un utilisateur de lancer une attaque sans même que l'utilisateur s'en rende compte.
+Il faut utiliser **GET** dans de l'affichage et non dans la soumission d'information.
+Pour soumettre il faut utiliser la methode **POST**.
+**PUT** est utilisé pour mettre à jour des informations.
 
-pour se protéger contre les attaques CSRF on doit utiliser le token, une clé que l'on rajoute dans le formulaire.
-cette clé est generé de tels facon que l'appli connaisse sa logique de création mais pas un utilisateur externe,
-on pourra ensuite verifier que le formulaire et la soumission porte bien un token qui est connu de l'appli.
+Pour se protéger contre les attaques CSRF on doit utiliser le token, une clé que l'on rajoute dans le formulaire.
+cette clé est generé de tels facon que l'appli connaisse sa logique de création mais pas un utilisateur externe.
+On pourra ensuite verifier que le formulaire et la soumission porte bien un token qui est connu de l'appli.
 
+```php
 <?php
 session_start();
 
-$token = sha1(session_id() . "jeSaleLeToken");  //ici on genere un token, on le sale puis on utilise SHA1
+$token = sha1(session_id() . "jeSaleLeToken");//ici on genere un token, on le sale puis on utilise SHA1
 
 $postedToken = isset($_POST['token']) ? $_POST['token'] : null; //si le token a ete posté alors on lui donne sa valeur sinon on la met à null.
 
@@ -188,16 +189,18 @@ if($postedToken){
         //ce dernier est crée à l'interieur de l'appli
     <input type="submit">
 </form>
+```
 
-donc cette methode permet de verifier d'où vient une requete. utiliser une classe qui permet cette verificatin et generer le token
+Donc cette methode permet de verifier d'où vient une requete. utiliser une classe qui permet cette verificatin et generer le token.
 
 
 
-les captchas
+### les captchas
 
-telechargez "securimage" et placez la librairie dans la racine du projet.
+Telechargez "securimage" et placez la librairie dans la racine du projet.
 c'est un niveau de securité suplémentaire, on demande à l'utilisateur de recopier l'info dans l'image.
 c'est une protection contre les robots qui ne peuvent voir l'image.
+```php
 <?php
 session_start();
 include_once 'secureimage/securimage.php' //inclure la librairie securimage pour analyser le captcha entrée  par l' utilisateur
@@ -230,9 +233,10 @@ if($postedToken){
     <input type="hiden" name="token" value="<?php echo $token ?>">  
     <input type="submit">
 </form>
+```
 
-
-VOICI UN EXEMPLE D'ATTAQUE CSRF
+VOICI UN EXEMPLE D'ATTAQUE CSRF:
+```php
 ---info.php---
 <?php
 session_start();
@@ -260,14 +264,16 @@ if(isset($_COOKIE['name'])){ //on test si un param "name" est bien passé par GE
 }
 header('Location: info.php'); // ensuite on le redirige vers la page info.php
 ---fin vote.php---
-
+```
 
 LE hack c'est si on est dans un forum sur lequel on peut ajouter une signature en image,
 dans l'image on fait pointer la source dans une url particuliere qui irrait directement voter,
 donc quand on affichera la page, on irra voté pour la personne automatiquement sans cliquer sur le lien de vote.
 
 ex: dans info.php on ajoute ceci
+```php
 <img src="vote.php?name=jeff"/> 
+```
 
 quand on chargera la page info.php cela ajoutera un vote automatiquement pour Jeff
 
