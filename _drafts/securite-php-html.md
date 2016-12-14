@@ -48,17 +48,20 @@ exemple:
 
 * le gestionnaire de module composer: https://getcomposer.org
 
-* pour le telecharger, il faut le faire à la racine du projet, ce qui genere le fichier getcomposer.phar : `curl -sS https://getcomposer.org/installer | php`
+* pour le telecharger, il faut le faire à la racine du projet, ce qui genere le fichier `getcomposer.phar` : `curl -sS https://getcomposer.org/installer | php`
 
 * pour l'executer, tapez `php composer.phar` puis à la racine du projet en cours il faut creer un fichier `composer.json` sinon composer ne fonctionnera pas, puis
 et mettre dedans:
+```json
 {
     "name" : "test",
     "description" : "test",
     "version" : "0.0"
 }
+```
 
-* ici on va telecharger swiftmailer, on va d'abord la chercher: 
+* ici on va telecharger swiftmailer, on va d'abord le chercher: 
+```bash
 $ php composer.phar search swiftmailer
 on a en retour: swiftmailer/swiftmailer Swiftmailer, a free feature-rich PHP mailer
 
@@ -77,15 +80,23 @@ openbuildings/swiftmailer-css-inliner Inline the css of your html emails
 symfony/swiftmailer-bridge Symfony Swiftmailer Bridge
 aimeos/ai-swiftmailer SwiftMailer adapter for Aimeos web shops and e-commerce solutions
 openbuildings/swiftmailer-filter Whitelist / Blacklist from domains or emails for email sending
+```
 
 * pour avoir des info sur le packet:
+```bash
 php composer.phar show swiftmailer/swiftmailer
+```
 on a en retour: des infos sur le nom, la description, les version, les prerequis
 
 * pour installer :
+```php
 php composer.phar require swiftmailer/swiftmailer
-puis donner la version (a choisir avec la commande show), on met "dev-master"
+```
+
+puis donner la version (à choisir avec la commande show), on met "dev-master"
 on a :
+
+```bash
 Using version ^5.4 for swiftmailer/swiftmailer
 ./composer.json has been updated
 Loading composer repositories with package information
@@ -95,46 +106,52 @@ Updating dependencies (including require-dev)
 
 Writing lock file
 Generating autoload files
+```
 
 cela ajoute la version de swiftmailer dans le .json
-cela crée aussi un dossier vendor contenant les sources de swiftmailer, des infos dans le dossier composer et 
-un autoloading de composer 'autoload.php' qui va autoloader des infos depuis composer
+cela crée aussi un dossier vendor contenant les sources de swiftmailer, des infos dans le dossier composer et un autoloading de composer 'autoload.php' qui va autoloader des infos depuis composer.
 
 
-les protocoles
+## LES PROTOCOLES
 HTTP port 80 données en claire
 HTTPS port 443 donnés chiffrés
-si on veut utiliser https sur notre serveur, on sera obligé d'acheter un certificat SSL qu'il faudra installer sur
-le serveur apache
+si on veut utiliser HTTPS sur notre serveur, on sera obligé d'acheter/generer un certificat SSL qu'il faudra installer sur le serveur apache.
 
 
-La faille XSS
-vise a exploiter une ingection de contenue dans le navigateur
-on peut tester ces failles en lancant le navigateur en desactivant les protections XSS:
+## LA FAILLE XSS
+vise à exploiter une ingection de contenue dans le navigateur.
+On peut tester ces failles en lancant le navigateur en desactivant les protections XSS:
+```bash
 open -a Google\ Chrome --args --disable-xss-auditor --disable-web-security
+```
 
-cela permet d'injecter du code via l'url en utilisant les variables GET par exemple..
-on peut aussi ajourer du code JS
-du coup on peut envoyer a la victime un lien avec le code dans l'url puis soutirer ses infos
+cela permet d'injecter du code via l'url en utilisant **les variables GET** par exemple..
+On peut aussi ajouter du code Javascript.
+Du coup, on peut envoyer à la victime un lien avec le code dans l'url puis soutirer ses infos.
 
-soit un site non protégé avec un lien permettant d'aller sur Google
-
+Soit un site non protégé avec un lien permettant d'aller sur Google.
 ensuite on ouvre la barre inspecter element, puis on recupere les elements de la balise <a></a>
 on va dans onglet console:
+```javascript
 var link = document.getElementsByTagName('a')[0];
-link  (renvoie <a href="site-cible-du-lien-par-defaut">Menu</a>
+link
+(renvoie <a href="site-cible-du-lien-par-defaut">Menu</a>
 link.href = 'tata.com'
 link
-(renvoie <a href="tata.com">Menu</a>  (ici, on a remplacé le lien!)
+(renvoie <a href="tata.com">Menu</a> (ici, on a remplacé le lien!)
+```
 
-donc pour inserer cette faille dans un lien il suffit d'ajouter les balises script apres la variable toto par exemple:
+Donc pour inserer cette faille dans un lien il suffit d'ajouter les balises `script` apres la variable toto par exemple:
+```url
 mon-site-non-protege.com/info.php?name=toto<script>var link = document.getElementsByTagName('a')[0];link.href = 'tata.com'</script>
+```
 
-Comment s'en proteger ?
+### Comment s'en proteger ?
 il faut echapper les variables.
+```php
 htmlspecialchars($_GET['name'])  -  Convertit les caractères spéciaux en entités HTML
 htmlentities($_GET['name']) - Convertit tous les caractères éligibles en entités HTML  (<- MIEUX, permet de concerver les é,è...)
-
+```
 
  
 LES ATTAQUES CSRF
