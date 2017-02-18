@@ -9,8 +9,6 @@ description: PHP securité...
 categories: backend web
 serie: dev web
 ---
-# sécurité PHP
-
 Voir la configuration php :
 
 ```php
