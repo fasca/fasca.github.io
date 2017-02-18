@@ -435,6 +435,7 @@ $password=isset($_POST['password']) ? mysql_real_escape_string($_POST['password'
 ```
 
 * 2eme solution utiliser l'objet PDO :
+
 ```php
 <?php
 //mysql_connect('localhost','root',null);
@@ -483,7 +484,7 @@ Voir le generateur de mot de passe : strongpasswordgenerator.com
    
 * pour les password il faut utiliser un sha1 et le saler
 
-```
+```php
 <?php
 $pdo=new PDO('mysql:host=localhost;dbname=info','root',null);
 
