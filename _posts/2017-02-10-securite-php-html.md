@@ -11,36 +11,40 @@ serie: dev web
 ---
 # sécurité PHP
 
+Voir la configuration php :
 
-Voir la configuration php:
 ```php
 <?php
 phpinfo()
 ```
 
-le fichier de conf de php:
+Le fichier de conf de php :
+
 * **php.ini**
 
 
 ## LES ERREURS
+
 * on peut activer la ligne `display_errors = On` dans le fichier **php.ini**.
 
-* sinon dans le code mettre en début de fichier:
+* sinon dans le code mettre en début de fichier :
 ```php
 error_reporting(E_ALL);
 ini_set('display_errors',true);
 ```
 
-* pour afficher les erreurs il faut utiliser l'extention **xdebug** qui apporte une surcouche au reporting display_errors de PHP. S'il n'est pas present alors il faut l'activer en editant le fichier **/usr/local/php5/php.d/50-extension-xdebug.ini** et supprimer les commentaires puis redemarrer apache.
+* Pour afficher les erreurs il faut utiliser l'extention **xdebug** qui apporte une surcouche au reporting display_errors de PHP. S'il n'est pas present alors il faut l'activer en editant le fichier **/usr/local/php5/php.d/50-extension-xdebug.ini** et supprimer les commentaires puis redemarrer apache.
 
 Ensuite dans le navigateur, il faut activier l'inspecteur d'elements, choisisez l'onglet **NETWORK** pour voir ce qui se passe coté HTTP quand on reçoit des requetes PHP.
 
-
 ## ARCHITECTURE DU SITE
-* ne pas nommer simplement les fichier tels que `config.php`, il vaut mieux obfusquer le nome du fichier avec un nom plus complexe.
 
-* l'obfuscation: il faut mettre les fichier sources du site à un niveau au dessus du dossier où apache a acces.
-exemple:
+* Ne pas nommer simplement les fichier tels que `config.php`, il vaut mieux obfusquer le nom du fichier avec un nom plus complexe.
+
+* L'obfuscation : il faut mettre les fichier sources du site à un niveau au dessus du dossier où apache a acces.
+
+exemple :
+
 ```bash
 |- src (dossier contenant les fichiers sources .php)
 |-vendor (dossier ? )
@@ -50,16 +54,15 @@ exemple:
 
 ## RECUPERER DES LIBRAIRIES
 
-* aller dans le site www.phpclasses.org   permet de récuperer des classes déja faites (classe d'upload d'image, detection de spam, framework rest, classe pour envoyer des mail etc...) puis on utilise `require` et `include`...
+* Aller dans le site www.phpclasses.org permet de récuperer des classes déja faites (classe d'upload d'image, detection de spam, framework rest, classe pour envoyer des mail etc...) puis on utilise `require` et `include`...
 
-* si on utilise des auto-loader ou des namespace alors il faut ajouter un gestionnaire de modules
+* Si on utilise des auto-loader ou des namespace alors il faut ajouter un gestionnaire de modules.
 
-* le gestionnaire de module composer: https://getcomposer.org
+* Le gestionnaire de module composer : https://getcomposer.org
 
-* pour le telecharger, il faut le faire à la racine du projet, ce qui genere le fichier `getcomposer.phar` : `curl -sS https://getcomposer.org/installer | php`
+* Pour le telecharger, il faut le faire à la racine du projet, ce qui genere le fichier `getcomposer.phar` : `curl -sS https://getcomposer.org/installer | php`
 
-* pour l'executer, tapez `php composer.phar` puis à la racine du projet en cours il faut creer un fichier `composer.json` sinon composer ne fonctionnera pas, puis
-et mettre dedans:
+* Pour l'executer, tapez `php composer.phar` puis à la racine du projet en cours il faut creer un fichier `composer.json` sinon composer ne fonctionnera pas, puis et mettre dedans :
 ```json
 {
     "name" : "test",
@@ -68,7 +71,7 @@ et mettre dedans:
 }
 ```
 
-* ici on va telecharger swiftmailer, on va d'abord le chercher: 
+* Ici on va telecharger swiftmailer, on va d'abord le chercher : 
 ```bash
 $ php composer.phar search swiftmailer
 on a en retour: swiftmailer/swiftmailer Swiftmailer, a free feature-rich PHP mailer
@@ -90,18 +93,18 @@ aimeos/ai-swiftmailer SwiftMailer adapter for Aimeos web shops and e-commerce so
 openbuildings/swiftmailer-filter Whitelist / Blacklist from domains or emails for email sending
 ```
 
-* pour avoir des info sur le packet:
+* Pour avoir des info sur le packet :
 ```bash
 php composer.phar show swiftmailer/swiftmailer
 ```
-on a en retour: des infos sur le nom, la description, les version, les prerequis
+on a en retour des infos sur le nom, la description, les version, les prerequis
 
-* pour installer :
+* Pour installer :
 ```php
 php composer.phar require swiftmailer/swiftmailer
 ```
 
-puis donner la version (à choisir avec la commande show), on met "dev-master"
+Puis donner la version (à choisir avec la commande show), on met "dev-master"
 on a :
 
 ```bash
@@ -116,30 +119,39 @@ Writing lock file
 Generating autoload files
 ```
 
-cela ajoute la version de swiftmailer dans le .json
-cela crée aussi un dossier vendor contenant les sources de swiftmailer, des infos dans le dossier composer et un autoloading de composer 'autoload.php' qui va autoloader des infos depuis composer.
+Ceci ajoute la version de swiftmailer dans le .json.
+
+Cela crée aussi un dossier vendor contenant les sources de swiftmailer, des infos dans le dossier composer et un autoloading de composer 'autoload.php' qui va autoloader des infos depuis composer.
 
 
 ## LES PROTOCOLES
-HTTP port 80 données en claire
-HTTPS port 443 donnés chiffrés
-si on veut utiliser HTTPS sur notre serveur, on sera obligé d'acheter/generer un certificat SSL qu'il faudra installer sur le serveur apache.
+
+HTTP port 80 données en claire.
+
+HTTPS port 443 donnés chiffrés.
+
+Si on veut utiliser HTTPS sur notre serveur, on sera obligé d'acheter/generer un certificat SSL qu'il faudra installer sur le serveur apache.
 
 
 ## LA FAILLE XSS
-vise à exploiter une injection de contenue dans le navigateur.
-On peut tester ces failles en lancant le navigateur en desactivant les protections XSS:
+
+Vise à exploiter une injection de contenue dans le navigateur.
+
+On peut tester ces failles en lancant le navigateur en desactivant les protections XSS :
+
 ```bash
 open -a Google\ Chrome --args --disable-xss-auditor --disable-web-security
 ```
 
-cela permet d'injecter du code via l'url en utilisant **les variables GET** par exemple..
+Cela permet d'injecter du code via l'url en utilisant **les variables GET** par exemple.
+
 On peut aussi ajouter du code Javascript.
+
 Du coup, on peut envoyer à la victime un lien avec le code dans l'url puis soutirer ses infos.
 
 Soit un site non protégé avec un lien permettant d'aller sur Google.
-ensuite on ouvre la barre inspecter element, puis on recupere les elements de la balise <a></a>
-on va dans onglet console:
+ensuite on ouvre la barre inspecter element, puis on recupere les elements de la balise `<a></a>`, on va dans onglet console :
+
 ```javascript
 var link = document.getElementsByTagName('a')[0];
 link
@@ -149,13 +161,16 @@ link
 (renvoie <a href="tata.com">Menu</a> (ici, on a remplacé le lien!)
 ```
 
-Donc pour inserer cette faille dans un lien il suffit d'ajouter les balises `script` apres la variable **toto** par exemple:
-```url
+Donc pour inserer cette faille dans un lien il suffit d'ajouter les balises `script` apres la variable **toto** par exemple :
+
+```bash
 mon-site-non-protege.com/info.php?name=toto<script>var link = document.getElementsByTagName('a')[0];link.href = 'tata.com'</script>
 ```
 
 ### Comment s'en proteger ?
-il faut echapper les variables.
+
+Il faut echapper les variables.
+
 ```php
 htmlspecialchars($_GET['name']) #Convertit les caractères spéciaux en entités HTML
 htmlentities($_GET['name']) #Convertit tous les caractères éligibles en entités HTML  (<- MIEUX, permet de concerver les é,è...)
@@ -163,9 +178,12 @@ htmlentities($_GET['name']) #Convertit tous les caractères éligibles en entit�
  
  
 ## LES ATTAQUES CSRF
+
 Permet d'inciter un utilisateur de lancer une attaque sans même que l'utilisateur s'en rende compte.
 Il faut utiliser **GET** dans de l'affichage et non dans la soumission d'information.
+
 Pour soumettre il faut utiliser la methode **POST**.
+
 **PUT** est utilisé pour mettre à jour des informations.
 
 Pour se protéger contre les attaques CSRF on doit utiliser le token, une clé que l'on rajoute dans le formulaire.
@@ -201,13 +219,12 @@ if($postedToken){
 
 Donc cette methode permet de verifier d'où vient une requete. utiliser une classe qui permet cette verificatin et generer le token.
 
-
-
 ### les captchas
 
 Telechargez "securimage" et placez la librairie dans la racine du projet.
-c'est un niveau de securité suplémentaire, on demande à l'utilisateur de recopier l'info dans l'image.
-c'est une protection contre les robots qui ne peuvent voir l'image.
+C'est un niveau de securité suplémentaire, on demande à l'utilisateur de recopier l'info dans l'image.
+C'est une protection contre les robots qui ne peuvent voir l'image.
+
 ```php
 <?php
 session_start();
@@ -243,7 +260,8 @@ if($postedToken){
 </form>
 ```
 
-VOICI UN EXEMPLE D'ATTAQUE CSRF:
+**VOICI UN EXEMPLE D'ATTAQUE CSRF :**
+
 ```php
 ---info.php---
 <?php
@@ -274,25 +292,28 @@ header('Location: info.php'); // ensuite on le redirige vers la page info.php
 ---fin vote.php---
 ```
 
-LE hack c'est si on est dans un forum sur lequel on peut ajouter une signature en image,
+Le hack c'est si on est dans un forum sur lequel on peut ajouter une signature en image,
 dans l'image on fait pointer la source dans une url particuliere qui irrait directement voter,
 donc quand on affichera la page, on irra voté pour la personne automatiquement sans cliquer sur le lien de vote.
 
 ex: dans info.php on ajoute ceci
+
 ```php
 <img src="vote.php?name=jeff"/> 
 ```
 
-quand on chargera la page info.php cela ajoutera un vote automatiquement pour Jeff
+Quand on chargera la page info.php cela ajoutera un vote automatiquement pour Jeff.
 
-DONC IL FAUT VERIFIER LA SOURCE DE L'ACTION, faire attention aux url et aux passage de parametres.
+DONC IL FAUT VERIFIER LA SOURCE DE L'ACTION, faire attention aux URL et aux passage de parametres.
 
 
-
-LE VOLE DE SESSION
+**LE VOLE DE SESSION**
 
 une session utilisateur est un espace temporaire dans lequel on va stocker des informations, comme si l'utilisateur est identifié.
-il est possible de voler l'info contenu dans la session
+
+Il est possible de voler l'info contenu dans la session
+
+```php
 <?php
 session_start();
 $password=isset($_GET['password']) ? $_GET['password'] : null;
@@ -304,32 +325,34 @@ if ('monPass' === $password){
 var_dump(session_id()); //voir le session id 
 var_dump($_SESSION); //voir la session
 var_dump($_COOKIE);  //ici on peut voir la variable cookie de la session ID soit le PHPSESSID
+```
 
-si dans l'url on fait  "notrepage.php?password=monPass" la variable session "identified" est crée et à pour valeur "true"
-le probleme de la session c'est qu'elle genere une variable cookie et on peut injecter des scripts JS pour modifier des choses dans
-le navigateur, on peut ecraser la session en cours puis indiquer a un autre navigateur, en connaissant la session d'un utilisateur,
+Si dans l'url on fait  "notrepage.php?password=monPass" la variable session "identified" est crée et à pour valeur "true". Le probleme de la session c'est qu'elle genere une variable cookie et on peut injecter des scripts JS pour modifier des choses dans le navigateur, on peut ecraser la session en cours puis indiquer a un autre navigateur, en connaissant la session d'un utilisateur,
 que nous sommes cet utilisateur et se faire identifié sans renseigner de mot de passe.
 
 exemple: en ouvrant la console de debug
-document.cookie  // donne le nom de la session PHPSESSID
+
+`document.cookie  // donne le nom de la session PHPSESSI`
  
-Maintenant on va voir comment on peut détrourner ça et comment sur un autre navigateur on pourrait voler la session de l'utilisateur
-car on connait la session de l'utilisateur. on ouvre une nouvelle fenetre de navigation (privé) puis on se rend sur la page en question.
-la page va generer une autre session ID different du premier (recharger la page). 
+Maintenant on va voir comment on peut détrourner ça et comment sur un autre navigateur on pourrait voler la session de l'utilisateur car on connait la session de l'utilisateur. On ouvre une nouvelle fenetre de navigation (privée) puis on se rend sur la page en question. La page va generer une autre session ID different du premier (recharger la page). 
 
-une fois dans la console, ajouter:
-document.cookie="PHPSESSID=ANCIENNE-SESSION"
+Une fois dans la console, ajoutez :
 
-et là, on vient de récuperer la session de l'utilisateur precedent sans connaitre son mot de passe.
+`document.cookie="PHPSESSID=ANCIENNE-SESSION"`
 
-COMMENT S'en proteger ?
+Et là, on vient de récuperer la session de l'utilisateur precedent sans connaitre son mot de passe.
 
-- la meilleur des solutions serait de ne pas stocker des informations sensibles dans les variables de SESSION.
+**COMMENT S'EN PROTEGER ?**
+
+* la meilleur des solutions serait de ne pas stocker des informations sensibles dans les variables de SESSION.
 les infos importantes seront stocké plutot en bdd.
-- autre possibilité c'est de stocker l'ip de l'utilisateur, cela permet de voir si c'est toujour le meme utilisateur:
+* autre possibilité c'est de stocker l'ip de l'utilisateur, cela permet de voir si c'est toujour le même utilisateur :
+```php
 $_SESSION['IP']=$_SERVER['REMOTE_ADDR'];
-- la meilleur des solution serait de ne pas avoir le meme session ID au début et au moment ou on s'identifie
-donc :
+```
+
+* la meilleur des solution serait de ne pas avoir le meme session ID au début et au moment ou on s'identifie. Donc :
+```php
 <?php
 // sur cette ligne, un lien permettant l'envoie de la session ID chez le pirate
 session_start(); <== ICI 
@@ -338,8 +361,12 @@ $password=isset($_GET['password']) ? $_GET['password'] : null;
 if ('monPass' === $password){ <== ET LA
     $_SESSION['identified']=true;
 }
-Ce qu'il faut faire c'est de changer la session ID au moment de la connexion grace a "session_regenerate_id()", comme ça l'utilisateur n'aura pas la meme
-session ID une fois connecté:
+```
+
+Ce qu'il faut faire c'est de changer la session ID au moment de la connexion grace à `"session_regenerate_id()"`, comme ça l'utilisateur n'aura pas la même
+session ID une fois connectsession ID une fois connecté :
+
+```php
 <?php
 // sur cette ligne, un lien permettant l'envoie de la session ID chez le pirate
 session_start(); 
@@ -352,14 +379,12 @@ if ('monPass' === $password){
     $_SESSION['identified']=true;
     $_SESSION['IP']=$_SERVER['REMOTE_ADDR'];
 }
-
-
-
+```
 
 INJECTION SQL
 
-soit un formulaire de connexion:
-
+soit un formulaire de connexion :
+```php
 <?php
 mysql_connect('localhost','root',null);
 mysql_select_db('info');
@@ -385,7 +410,7 @@ if ($result = mysql_fetch_assoc($sql)){
     <input type="password" name="password">
     <<input type="submit">
 </form>
-
+```
 CETTE REQUETE SQL COMPORTE UNE FAILLE DE SECURITE IMPORTANTE
 car sans utilisateur et sans mot de passe il est possible de se connecter recuperer les données d'un utilisateur
 
