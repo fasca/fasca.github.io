@@ -715,8 +715,9 @@ Puis ouvrir l'index.html qui est le resultat du scan :
 * phpqatools.org, les outis pour la securité: **PHP_CodeSniffer** et **PHP Mess Detector**
 pour garantire qu'un code est bien ecrit et q'un site est bien réalisé on parlera de qualité de code.
  
-	* php mess detector (faire du code plus propre):
- 	```php
+	* php mess detector (faire du code plus propre) :
+
+```php
     pour le lancer, dans un terminal:
   	phpmd 
 	
@@ -727,10 +728,11 @@ pour garantire qu'un code est bien ecrit et q'un site est bien réalisé on parl
     ```php
 	pour le lancer:
 	phpcs config
-    ```
+```
 
 	* phpDocumentor
-    ```php
+
+```php
     quand on a un code commenté exemple dans info.php on a en en-tete:
 
 	/**
@@ -746,9 +748,9 @@ pour garantire qu'un code est bien ecrit et q'un site est bien réalisé on parl
 	va generer une doc en lisant le script dans le dossir output/index.html
 
 	on peut faire de la doc sur une classe, une fonction etc automatiquement avec phpDoc
-	```
+```
 
-autres choses:
+Autres choses:
 ```php
 (verifier l'ancieneté de la session $_SESSION['last_access']=time(); )
 (tester avec if(time()-$_SESSION['last_access']>$session_timeout) )
