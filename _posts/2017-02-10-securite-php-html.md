@@ -350,6 +350,7 @@ $_SESSION['IP']=$_SERVER['REMOTE_ADDR'];
 ```
 
 * la meilleur des solution serait de ne pas avoir le meme session ID au début et au moment ou on s'identifie. Donc :
+
 ```php
 <?php
 // sur cette ligne, un lien permettant l'envoie de la session ID chez le pirate
