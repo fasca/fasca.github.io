@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Imiter Expect en Bash
-date: 2017-02-28
+date: {}
 tags:
   - backend
   - system
@@ -26,4 +26,4 @@ echo "exit"
 ````
 pour executer ce scirpt sur du telnet exemple:
 
-sh script.sh | telenet @IP
+`sh script.sh | telenet @IP`
