@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Imiter Expect en Bash
-date: {}
+date: 2017-02-28T00:00:00.000Z
 tags:
   - backend
   - system
