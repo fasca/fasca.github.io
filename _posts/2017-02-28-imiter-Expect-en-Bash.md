@@ -27,3 +27,5 @@ echo "exit"
 pour executer ce scirpt sur du telnet exemple:
 
 `sh script.sh | telenet @IP`
+
+test
