@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ruby
+title: Apprendre Ruby
 date: 2017-07-15
 tags:
   - backend
