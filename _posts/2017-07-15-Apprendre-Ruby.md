@@ -15,7 +15,7 @@ published: true
 
 ## **SOMMAIRE**
 
-* **Les types primitifs String et Numeric**
+* <a href="#1">**Les types primitifs String et Numeric**</a>
 * **Les types primitifs Array et Hash**
 * **Les structures de controle**
 * **Variables et identifieurs**
@@ -44,7 +44,7 @@ published: true
 * **Utiliser le debugger**
 
 
-## LES TYPES PRIMITIFS STRING ET NUMERIC
+## <div id="1">LES TYPES PRIMITIFS STRING ET NUMERIC</div>
 
 Bienvenue dans cette toute nouvelle série dédiée à la découverte du langage Ruby.
 
