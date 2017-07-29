@@ -16,37 +16,63 @@ published: true
 ## **SOMMAIRE**
 
 * **Les types primitifs String et Numeric**
-<a href="#1">Les types primitifs String et Numeric</a>
+<a href="#1"><h3>1- Les types primitifs String et Numeric</h3></a>
 * **Les types primitifs Array et Hash**
+<a href="#2"><h3>2- Les types primitifs Array et Hash</h3></a>
 * **Les structures de controle**
+<a href="#3"><h3>3- Les structures de controle</h3></a>
 * **Variables et identifieurs**
+<a href="#4"><h3>4- Variables et identifieurs</h3></a>
 * **Créer une classe**
+<a href="#5"><h3>5- Créer une classe</h3></a>
 * **Les accesseurs**
+<a href="#6"><h3>6- Les accesseurs</h3></a>
 * **L'héritage**
+<a href="#7"><h3>7- L'héritage</h3></a>
 * **La visibilité des méthodes**
+<a href="#8"><h3>8- La visibilité des méthodes</h3></a>
 * **Les bases de la réflexion**
+<a href="#9"><h3>9- Les bases de la réflexion</h3></a>
 * **Les symboles**
+<a href="#10"><h3>10- Les symboles</h3></a>
 * **La classe Time**
+<a href="#11"><h3>11- La classe Time</h3></a>
 * **Les classes Date et Datetime**
+<a href="#12"><h3>12- Les classes Date et Datetime</h3></a>
 * **La classe Array**
+<a href="#13"><h3>13- LA classe Array</h3></a>
 * **Manipuler des chaînes de caractères**
+<a href="#14"><h3>14- Manipuler des chaînes de caractères</h3></a>
 * **Les expressions rationnelles, partie 1**
+<a href="#15"><h3>15- Les expressions rationnelles, partie 1</h3></a>
 * **Les expressions rationnelles, partie 2**
+<a href="#16"><h3>16- Les expressions rationnelles, partie 2</h3></a>
 * **Les entrées sorties**
+<a href="#17"><h3>17- Les entrées sorties</h3></a>
 * **Les attributs de fichier**
+<a href="#18"><h3>18- Les attributs de fichier</h3></a>
 * **Fichiers temporaires et répertoires**
+<a href="#19"><h3>19- Fichiers temporaires et répertoires</h3></a>
 * **Sérialisation et persistance**
+<a href="#20"><h3>20- Sérialisation et persistance</h3></a>
 * **Les threads en ruby**
+<a href="#21"><h3>21- Les threads en ruby</h3></a>
 * **Synchroniser les threads**
+<a href="#22"><h3>22- Synchroniser les threads</h3></a>
 * **La programmation système**
+<a href="#23"><h3>23- La programmation système</h3></a>
 * **La programmation réseau**
+<a href="#24"><h3>24- La programmation réseau</h3></a>
 * **Les tests automatisés, partie 1**
+<a href="#25"><h3>25- Les tests automatisés, partie 1</h3></a>
 * **Les tests automatisés, partie 2**
+<a href="#26"><h3>26- Les tests automatisés, partie 2</h3></a>
 * **Utiliser le debugger**
+<a href="#27"><h3>27- Utiliser le debugger</h3></a>
 
 
 ## LES TYPES PRIMITIFS STRING ET NUMERIC
-<div id="1">1</div>
+<div id="1"><h2>1- LES TYPES PRIMITIFS STRING ET NUMERIC</h2></div>
 
 Bienvenue dans cette toute nouvelle série dédiée à la découverte du langage Ruby.
 
@@ -115,6 +141,7 @@ Voilà pour cette présentation rapide des objets des classes `String` et `Numer
 Nous n'avons ici qu'effleuré la surface des possibilités de ces classes. Je vous invite donc à en lire la documentation pour découvrir l'étendu des possibilités.
 
 ## LES TYPES PRIMITIFS ARRAY ET HASH
+<div id="2"><h2>2- LES TYPES PRIMITIFS ARRAY ET HASH</h2></div>
 
 ### Les tableaux : Array
 
@@ -173,6 +200,7 @@ Voilà pour cette présentation rapide des types `Array` et `Hash` que vous util
 Bien évidemment ce n'est ici que approche très succincte et une fois encore je vous invite à aller lire la documentation relative à ces classes.
 
 ## LES STRUCTURES DE CONTROLE
+<div id="3"><h2>3- LES STRUCTURES DE CONTROLE</h2></div>
 
 ### Les classiques
 
@@ -288,6 +316,7 @@ La branche `else` est le cas par défaut qui est appelé si aucune des condition
 Vous avez donc maintenant les bases pour mettre en place des structures de contrôle dans votre code Ruby. Ces structures constituent la base d'un programme et vous seront utiles au quotidien.
 
 ## VARIABLES ET IDENTIFIEURS
+<div id="4"><h2>4- VARIABLES ET IDENTIFIEURS</h2></div>
 
 ### La théorie
 
@@ -390,6 +419,7 @@ On a donc créé trois instances de la classes `User` et c'est bien ce que nous 
 Vous connaissez maintenant les différents types de variables et d'identifieurs à votre disposition ce qui vous permettra de stocker correctement les informations dans votre programme en fonction de leur contexte.
 
 ## CREER UNE CLASSE
+<div id="5"><h2>5- CREER UNE CLASSE</h2></div>
 
 ### La théorie
 
@@ -475,6 +505,7 @@ C'est très souvent utilisé pour accéder à la valeur depuis une autre partie 
 Vous connaissez maintenant les bases de la création d'une classe en Ruby. Vous allez donc pouvoir commencer à organiser votre code de façon plus modulaire. Il reste évidemment beaucoup d'autres choses relatives aux classes à découvrir pour prétendre les maitriser, c'est ce que nous verrons dans les prochains épisodes.
 
 ## LES ACCESSEURS
+<div id="6"><h2>6- LES ACCESSEURS</h2></div>
 
 ### La théorie
 
@@ -579,6 +610,7 @@ Le comportement est identique mais le code est plus concis et les risques de bug
 Vous connaissez maintenant les bases de la création des accesseurs dans une classe en Ruby. Vous allez donc pouvoir améliorer vos classes existantes et mettre en place des méthodes permettant de manipuler vos attributs d'instances.
 
 ## L'HERITAGE
+<div id="7"><h2>7- L'HERITAGE</h2></div>
 
 ### La théorie
 
@@ -696,6 +728,7 @@ On a donc la méthode `description` de la classe `Animal` qui génère la premi�
 L'héritage est un moyen très flexible pour architecturer vos classes et éviter la redondance. C'est une notion qu'il est nécessaire de maîtriser si vous voulez vous attaquer à des projets ambitieux et bien encapsuler le comportement de chaque entité. Je vous invite donc à faire des essais de votre côté !
 
 ## LA VISIBILITE DES METHODES
+<div id="8"><h2>8- LA VISIBILITE DES METHODES</h2></div>
 
 ### La théorie
 
@@ -858,6 +891,7 @@ L'utilisation la plus fréquente pour les méthodes protégées est de permettre
 Il est important de maîtriser le concept de visibilité des méthodes pour être en mesure d'écrire des classes avec une interface propre. Le plus souvent vous utiliserez des méthodes publiques et privées mais il reste essentiel de savoir utiliser les méthodes protégées pour permettre à vos objets de communiquer entre eux sans polluer l'interface publique.
 
 ## LES BASES DE LA REFLEXION
+<div id="9"><h2>9- LES BASES DE LA REFLEXION</h2></div>
 
 ### La théorie
 
@@ -973,6 +1007,7 @@ Je vous invite toutefois à faire attention à ne pas en abuser. Quand vous pouv
 Sachez que cette possibilité existe et qu'elle a beaucoup à offrir mais utilisez la avec parcimonie.
 
 ## LES SYMBOLES
+<div id="10"><h2>10- LES SYMBOLES</h2></div>
 
 ### La théorie
 
@@ -1091,6 +1126,7 @@ array.map(&:capitalize)
 Les symboles sont un des piliers de Ruby qu'il est important de maîtriser pour améliorer votre code mais aussi pour comprendre celui des autres. Désormais quand vous créerez une chaîne, demandez vous si c'est vraiment ce dont vous avez besoin. Allez-vous la manipuler en tant que tel ? Si la réponse est non, vous avez certainement besoin d'un symbole pour représenter cette valeur.
 
 ## LA CLASSE TIME
+<div id="11"><h2>11- LA CLASSE TIME</h2></div>
 
 ### La théorie
 
@@ -1264,6 +1300,7 @@ Il devient facile d'écrire des méthodes de plus haut niveau pour manipuler de 
 D'autres librairies comme ActiveSupport vont encore plus loin et ajoutent encore plus de naturel dans la manipulation des dates.
 
 ## LES CLASSES DATE ET DATETIME
+<div id="12"><h2>12- LES CLASSES DATE ET DATETIME</h2></div>
 
 ### Les classe `Date` et `DateTime` et leurs motivations
 
@@ -1438,6 +1475,7 @@ C'est une base solide pour l'écriture de méthodes de manipulation de plus haut
 
 
 ## LA CLASSE ARRAY
+<div id="13"><h2>13- LA CLASSE ARRAY</h2></div>
 
 ### Les déclarations
 
@@ -1626,6 +1664,7 @@ Nous avons vu ici la majeur partie des possibilités livrées par la classe `Arr
 Quelques méthodes supplémentaires très pratiques sont mises à disposition par le module `Enumerable` que nous découvrirons plus tard.
 
 ## MANIPULER DES CHAINES DE CARACTERES
+<div id="14"><h2>14- MANIPULER DES CHAINES DE CARACTERES</h2></div>
 
 ### Les déclarations 
 
@@ -1856,6 +1895,7 @@ Nous avons vu ici la majeur partie des possibilités livrées par la classe `Str
 
 
 ## LES EXPRESSIONS RATIONNELLES, PARTIE 1
+<div id="15"><h2>15- LES EXPRESSIONS RATIONNELLES, PARTIE 1</h2></div>
 
 ### La théorie
 
@@ -1953,6 +1993,7 @@ Les expressions rationnelles sont donc un moyen très puissant d'analyser du tex
 La vidéo suivante nous permettra d'en apprendre un peu plus.
 
 ## LES EXPRESSIONS RATIONNELLES, PARTIE 2
+<div id="16"><h2>16- LES EXPRESSIONS RATIONNELLES, PARTIE 2</h2></div>
 
 Bienvenue dans cette vidéo qui fait suite à la découverte de l'utilisation des expressions rationnelles en Ruby.
 
@@ -2133,6 +2174,7 @@ Pour continuer l'exploration, je vous invite à tester des expressions dans votr
 
 
 ## LES ENTREES SORTIES
+<div id="17"><h2>17- LES ENTREES SORTIES</h2></div>
 
 Bienvenue dans cette vidéo consacrée à la découverte des entrées / sorties en Ruby. Les entrées / sorties sont souvent appelées I/O de l'anglais Input / Output.
 
@@ -2342,6 +2384,7 @@ Dans les prochaines vidéos nous approfondirons ces concepts pour apprendre à m
 
 
 ## LES ATTRIBUTS DE FICHIER
+<div id="18"><h2>18- LES ATTRIBUTS DE FICHIER</h2></div>
 
 Bienvenue dans cette vidéo consacrée à la manipulation des attributs avancés des fichiers. Les usages que nous verrons ici sont particulièrement destinés à des scripts s'exécutant sur des systèmes de type Unix.
 
@@ -2524,6 +2567,7 @@ Pour compléter vos compétences, nous verrons dans le prochain épisode comment
 
 
 ## FICHIERS TEMPORAIRES ET REPERTOIRES
+<div id="19"><h2>19- FICHIERS TEMPORAIRES ET REPERTOIRES</h2></div>
 
 ### Les fichiers temporaires
 
@@ -2686,6 +2730,7 @@ Le prochain épisode vous donnera les clés pour sérialiser et persister des ob
 
 
 ## SERIALISATION ET PERSISTANCE
+<div id="20"><h2>20- SERIALISATION ET PERSISTANCE</h2></div>
 
 Nous verrons aujourd'hui comment persister des objets Ruby sur le disque pour pouvoir les ré-utiliser plus tard.
 
@@ -2866,6 +2911,7 @@ Vous avez donc maintenant toutes les clés pour travailler avec les entrées sor
 
 
 ## LES THREADS EN RUBY
+<div id="21"><h2>LES THREADS EN RUBY</h2></div>
 
 ### Introduction aux threads
 
@@ -3002,6 +3048,7 @@ Dans l'épisode suivant, nous verrons comment synchroniser les threads entre eux
 
 
 ## SYCHRONISER LES THREADS
+<div id="22"><h2>22- SYCHRONISER LES THREADS</h2></div>
 
 Nous verrons cette fois ci comment synchroniser la manipulation des données entre les différents threads. En effet, si aucune synchronisation n'est mise en place il se pourrait que les différents threads se marchent sur les pieds en modifiant une même variable. Les modifications de l'un serait donc écrasées et perdues par l'autre.
 
@@ -3164,6 +3211,7 @@ Les threads sont un sujet difficile à appréhender au début mais qui peut vous
 
 
 ## LA PROGRAMMATION SYSTEME
+<div id="23"><h2>23- LA PROGRAMMATION SYSTEME</h2></div>
 
 Dans le monde Unix, il n'est pas rare d'exécuter des tâches depuis le terminal, que ce soit pour lancer un ensemble de commandes ou encore faire de l'administration système. Quand ces tâches deviennent répétitives, on a tendance à les encapsuler dans un script pour les automatiser.
 
@@ -3324,7 +3372,7 @@ Nous avons donc ici toutes les bases nécessaires pour nous lancer dans l'écrit
 
 
 ## LA PROGRAMMATION RESEAU
-
+<div id="24"><h2>24- LA PROGRAMMATION RESEAU</h2></div>
 Dans de nombreux projets, on souhaite pouvoir faire communiquer plusieurs programmes entre eux à travers le réseau. On peut vouloir écrire un client pour communiquer avec un service existant. On peut aussi vouloir créer un serveur qui fournira des services à des clients externes (chat, jeu, ferme de calcul, peer to peer, etc). Finalement on voudra parfois écrire le client et le serveur.
 
 Voyons donc quelques exemples de cas concrets pour vous permettre d'appréhender ce qu'il est possible de faire.
@@ -3472,6 +3520,7 @@ Ce qu'il faudra retenir c'est que vous avez à disposition les outils bas niveau
 
 
 ## LES TESTS AUTOMATISES, PARTIE 1
+<div id="25"><h2>25- LES TESTS AUTOMATISES, PARTIE 1</h2></div>
 
 La mise en place de tests automatisés pour votre code peut sembler rédhibitoire si vous n'y êtes pas habitués mais s'avère vite indispensable sur des projets voués à évoluer et dépassant les quelques dizaines de ligne de code.
 
@@ -3639,7 +3688,7 @@ Dans le prochain épisode nous verrons comment éviter la redondance à travers 
 
 
 ## LES TESTS AUTOMATISES, PARTIE 2
-
+<div id="26"><h2>LES TESTS AUTOMATISES, PARTIE 2</h2></div>
 Maintenant que nous avons vu les bases de la mise en place de tests à l'aide de Minitest::Spec, nous allons aller un peu plus loin et découvrir les outils que Minitest met à notre disposition pour éviter la redondance et gérer des cas complexes dans lequels le contexte doit être maitrisé pour pouvoir écrire des tests robustes.
 
 ### Callbacks et accesseurs paresseux
@@ -3878,6 +3927,7 @@ Les tests sont sans aucun doute possible l'un de vos meilleurs alliés pour écr
 
 
 ## UTILISER LE DEBUGGER
+<div id="27"><h2>UTILISER LE DEBUGGER</h2></div>
 
 Quelque soit l'attention que vous portez à l'architecture et
 l'écriture de votre code, vous finirez un jour par être confronté à un
