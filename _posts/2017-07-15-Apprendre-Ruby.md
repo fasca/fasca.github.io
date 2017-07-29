@@ -15,59 +15,55 @@ published: true
 
 ## **SOMMAIRE**
 
-<a href="#1"><h3>1- Les types primitifs String et Numeric</h3></a>
+<h3><a href="#1">1- Les types primitifs String et Numeric</a></h3>
+<h3><a href="#2">2- Les types primitifs Array et Hash</a></h3>
+<h3><a href="#3">3- Les structures de controle</a></h3>
+<h3><a href="#4">4- Variables et identifieurs</a></h3>
+<h3><a href="#5">5- Créer une classe</a></h3>
 
-<a href="#2"><h3>2- Les types primitifs Array et Hash</h3></a>
+<h3><a href="#6">6- Les accesseurs</a></h3>
 
-<a href="#3"><h3>3- Les structures de controle</h3></a>
+<h3><a href="#7">7- L'héritage</a></h3>
 
-<a href="#4"><h3>4- Variables et identifieurs</h3></a>
+<h3><a href="#8">8- La visibilité des méthodes</a></h3>
 
-<a href="#5"><h3>5- Créer une classe</h3></a>
+<h3><a href="#9">9- Les bases de la réflexion</a></h3>
 
-<a href="#6"><h3>6- Les accesseurs</h3></a>
+<h3><a href="#10">10- Les symboles</a></h3>
 
-<a href="#7"><h3>7- L'héritage</h3></a>
+<h3><a href="#11">11- La classe Time</a></h3>
 
-<a href="#8"><h3>8- La visibilité des méthodes</h3></a>
+<h3><a href="#12">12- Les classes Date et Datetime</a></h3>
 
-<a href="#9"><h3>9- Les bases de la réflexion</h3></a>
+<h3><a href="#13">13- La classe Array</a></h3>
 
-<a href="#10"><h3>10- Les symboles</h3></a>
+<h3><a href="#14">14- Manipuler des chaînes de caractères</a></h3>
 
-<a href="#11"><h3>11- La classe Time</h3></a>
+<h3><a href="#15">15- Les expressions rationnelles, partie 1</a></h3>
 
-<a href="#12"><h3>12- Les classes Date et Datetime</h3></a>
+<h3><a href="#16">16- Les expressions rationnelles, partie 2</a></h3>
 
-<a href="#13"><h3>13- La classe Array</h3></a>
+<h3><a href="#17">17- Les entrées sorties</a></h3>
 
-<a href="#14"><h3>14- Manipuler des chaînes de caractères</h3></a>
+<h3><a href="#18">18- Les attributs de fichier</a></h3>
 
-<a href="#15"><h3>15- Les expressions rationnelles, partie 1</h3></a>
+<h3><a href="#19">19- Fichiers temporaires et répertoires</a></h3>
 
-<a href="#16"><h3>16- Les expressions rationnelles, partie 2</h3></a>
+<h3><a href="#20">20- Sérialisation et persistance</a></h3>
 
-<a href="#17"><h3>17- Les entrées sorties</h3></a>
+<h3><a href="#21">21- Les threads en ruby</a></h3>
 
-<a href="#18"><h3>18- Les attributs de fichier</h3></a>
+<h3><a href="#22">22- Synchroniser les threads</a></h3>
 
-<a href="#19"><h3>19- Fichiers temporaires et répertoires</h3></a>
+<h3><a href="#23">23- La programmation système</a></h3>
 
-<a href="#20"><h3>20- Sérialisation et persistance</h3></a>
+<h3><a href="#24">24- La programmation réseau</a></h3>
 
-<a href="#21"><h3>21- Les threads en ruby</h3></a>
+<h3><a href="#25">25- Les tests automatisés, partie 1</a></h3>
 
-<a href="#22"><h3>22- Synchroniser les threads</h3></a>
+<h3><a href="#26">26- Les tests automatisés, partie 2</a></h3>
 
-<a href="#23"><h3>23- La programmation système</h3></a>
-
-<a href="#24"><h3>24- La programmation réseau</h3></a>
-
-<a href="#25"><h3>25- Les tests automatisés, partie 1</h3></a>
-
-<a href="#26"><h3>26- Les tests automatisés, partie 2</h3></a>
-
-<a href="#27"><h3>27- Utiliser le debugger</h3></a>
+<h3><a href="#27">27- Utiliser le debugger</a></h3>
 
 
 ## LES TYPES PRIMITIFS STRING ET NUMERIC
