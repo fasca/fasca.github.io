@@ -71,7 +71,7 @@ published: true
 
 <a href="#27">27- Utiliser le debugger</a>
 
->
+
 
 <div id="1"><h2>1- LES TYPES PRIMITIFS STRING ET NUMERIC</h2></div>
 
