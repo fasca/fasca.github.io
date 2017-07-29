@@ -15,6 +15,8 @@ published: true
 
 ## **SOMMAIRE**
 
+
+```
 <a href="#1">1- Les types primitifs String et Numeric</a>
 
 <a href="#2">2- Les types primitifs Array et Hash</a>
@@ -24,6 +26,8 @@ published: true
 <a href="#4">4- Variables et identifieurs</a>
 
 <a href="#5">5- Créer une classe</a>
+```
+
 
 <a href="#6">6- Les accesseurs</a>
 
@@ -35,25 +39,33 @@ published: true
 
 <a href="#10">10- Les symboles</a>
 
-<a href="#11">11- La classe Time</a><
+<a href="#11">11- La classe Time</a>
 
-<h3><a href="#12">12- Les classes Date et Datetime</a></h3>
-<h3><a href="#13">13- La classe Array</a></h3>
-<h3><a href="#14">14- Manipuler des chaînes de caractères</a></h3>
-<h3><a href="#15">15- Les expressions rationnelles, partie 1</a></h3>
-<h3><a href="#16">16- Les expressions rationnelles, partie 2</a></h3>
-<h3><a href="#17">17- Les entrées sorties</a></h3>
-<h3><a href="#18">18- Les attributs de fichier</a></h3>
-<h3><a href="#19">19- Fichiers temporaires et répertoires</a></h3>
-<h3><a href="#20">20- Sérialisation et persistance</a></h3>
-<h3><a href="#21">21- Les threads en ruby</a></h3>
-<h3><a href="#22">22- Synchroniser les threads</a></h3>
-<h3><a href="#23">23- La programmation système</a></h3>
-<h3><a href="#24">24- La programmation réseau</a></h3>
-<h3><a href="#25">25- Les tests automatisés, partie 1</a></h3>
-<h3><a href="#26">26- Les tests automatisés, partie 2</a></h3>
-<h3><a href="#27">27- Utiliser le debugger</a></h3>
+<a href="#12">12- Les classes Date et Datetime</a>
 
+<a href="#13">13- La classe Array</a>
+
+<a href="#14">14- Manipuler des chaînes de caractères</a>
+
+<a href="#15">15- Les expressions rationnelles, partie 1</a>
+
+<a href="#16">16- Les expressions rationnelles, partie 2</a>
+
+<a href="#17">17- Les entrées sorties</a>
+
+<a href="#18">18- Les attributs de fichier</a>
+
+```
+<a href="#19">19- Fichiers temporaires et répertoires</a>
+<a href="#20">20- Sérialisation et persistance</a>
+<a href="#21">21- Les threads en ruby</a>
+<a href="#22">22- Synchroniser les threads</a>
+<a href="#23">23- La programmation système</a>
+<a href="#24">24- La programmation réseau</a>
+<a href="#25">25- Les tests automatisés, partie 1</a>
+<a href="#26">26- Les tests automatisés, partie 2</a>
+<a href="#27">27- Utiliser le debugger</a>
+```
 
 
 <div id="1"><h2>1- LES TYPES PRIMITIFS STRING ET NUMERIC</h2></div>
