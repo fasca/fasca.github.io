@@ -21,14 +21,22 @@ published: true
 
 <a href="#3">3- Les structures de controle</a>
 
-<h3><a href="#4">4- Variables et identifieurs</a></h3>
-<h3><a href="#5">5- Créer une classe</a></h3>
-<h3><a href="#6">6- Les accesseurs</a></h3>
-<h3><a href="#7">7- L'héritage</a></h3>
-<h3><a href="#8">8- La visibilité des méthodes</a></h3>
-<h3><a href="#9">9- Les bases de la réflexion</a></h3>
-<h3><a href="#10">10- Les symboles</a></h3>
-<h3><a href="#11">11- La classe Time</a></h3>
+<a href="#4">4- Variables et identifieurs</a>
+
+<a href="#5">5- Créer une classe</a>
+
+<a href="#6">6- Les accesseurs</a>
+
+<a href="#7">7- L'héritage</a>
+
+<a href="#8">8- La visibilité des méthodes</a>
+
+<a href="#9">9- Les bases de la réflexion</a>
+
+<a href="#10">10- Les symboles</a>
+
+<a href="#11">11- La classe Time</a><
+
 <h3><a href="#12">12- Les classes Date et Datetime</a></h3>
 <h3><a href="#13">13- La classe Array</a></h3>
 <h3><a href="#14">14- Manipuler des chaînes de caractères</a></h3>
