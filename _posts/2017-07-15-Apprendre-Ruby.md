@@ -15,59 +15,58 @@ published: true
 
 ## **SOMMAIRE**
 
-* **Les types primitifs String et Numeric**
 <a href="#1"><h3>1- Les types primitifs String et Numeric</h3></a>
-* **Les types primitifs Array et Hash**
+
 <a href="#2"><h3>2- Les types primitifs Array et Hash</h3></a>
-* **Les structures de controle**
+
 <a href="#3"><h3>3- Les structures de controle</h3></a>
-* **Variables et identifieurs**
+
 <a href="#4"><h3>4- Variables et identifieurs</h3></a>
-* **Créer une classe**
+
 <a href="#5"><h3>5- Créer une classe</h3></a>
-* **Les accesseurs**
+
 <a href="#6"><h3>6- Les accesseurs</h3></a>
-* **L'héritage**
+
 <a href="#7"><h3>7- L'héritage</h3></a>
-* **La visibilité des méthodes**
+
 <a href="#8"><h3>8- La visibilité des méthodes</h3></a>
-* **Les bases de la réflexion**
+
 <a href="#9"><h3>9- Les bases de la réflexion</h3></a>
-* **Les symboles**
+
 <a href="#10"><h3>10- Les symboles</h3></a>
-* **La classe Time**
+
 <a href="#11"><h3>11- La classe Time</h3></a>
-* **Les classes Date et Datetime**
+
 <a href="#12"><h3>12- Les classes Date et Datetime</h3></a>
-* **La classe Array**
-<a href="#13"><h3>13- LA classe Array</h3></a>
-* **Manipuler des chaînes de caractères**
+
+<a href="#13"><h3>13- La classe Array</h3></a>
+
 <a href="#14"><h3>14- Manipuler des chaînes de caractères</h3></a>
-* **Les expressions rationnelles, partie 1**
+
 <a href="#15"><h3>15- Les expressions rationnelles, partie 1</h3></a>
-* **Les expressions rationnelles, partie 2**
+
 <a href="#16"><h3>16- Les expressions rationnelles, partie 2</h3></a>
-* **Les entrées sorties**
+
 <a href="#17"><h3>17- Les entrées sorties</h3></a>
-* **Les attributs de fichier**
+
 <a href="#18"><h3>18- Les attributs de fichier</h3></a>
-* **Fichiers temporaires et répertoires**
+
 <a href="#19"><h3>19- Fichiers temporaires et répertoires</h3></a>
-* **Sérialisation et persistance**
+
 <a href="#20"><h3>20- Sérialisation et persistance</h3></a>
-* **Les threads en ruby**
+
 <a href="#21"><h3>21- Les threads en ruby</h3></a>
-* **Synchroniser les threads**
+
 <a href="#22"><h3>22- Synchroniser les threads</h3></a>
-* **La programmation système**
+
 <a href="#23"><h3>23- La programmation système</h3></a>
-* **La programmation réseau**
+
 <a href="#24"><h3>24- La programmation réseau</h3></a>
-* **Les tests automatisés, partie 1**
+
 <a href="#25"><h3>25- Les tests automatisés, partie 1</h3></a>
-* **Les tests automatisés, partie 2**
+
 <a href="#26"><h3>26- Les tests automatisés, partie 2</h3></a>
-* **Utiliser le debugger**
+
 <a href="#27"><h3>27- Utiliser le debugger</h3></a>
 
 
@@ -2911,7 +2910,7 @@ Vous avez donc maintenant toutes les clés pour travailler avec les entrées sor
 
 
 ## LES THREADS EN RUBY
-<div id="21"><h2>LES THREADS EN RUBY</h2></div>
+<div id="21"><h2>21- LES THREADS EN RUBY</h2></div>
 
 ### Introduction aux threads
 
@@ -3688,7 +3687,7 @@ Dans le prochain épisode nous verrons comment éviter la redondance à travers 
 
 
 ## LES TESTS AUTOMATISES, PARTIE 2
-<div id="26"><h2>LES TESTS AUTOMATISES, PARTIE 2</h2></div>
+<div id="26"><h2>26- LES TESTS AUTOMATISES, PARTIE 2</h2></div>
 Maintenant que nous avons vu les bases de la mise en place de tests à l'aide de Minitest::Spec, nous allons aller un peu plus loin et découvrir les outils que Minitest met à notre disposition pour éviter la redondance et gérer des cas complexes dans lequels le contexte doit être maitrisé pour pouvoir écrire des tests robustes.
 
 ### Callbacks et accesseurs paresseux
@@ -3927,7 +3926,7 @@ Les tests sont sans aucun doute possible l'un de vos meilleurs alliés pour écr
 
 
 ## UTILISER LE DEBUGGER
-<div id="27"><h2>UTILISER LE DEBUGGER</h2></div>
+<div id="27"><h2>27- UTILISER LE DEBUGGER</h2></div>
 
 Quelque soit l'attention que vous portez à l'architecture et
 l'écriture de votre code, vous finirez un jour par être confronté à un
