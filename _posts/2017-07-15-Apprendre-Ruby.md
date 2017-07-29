@@ -16,7 +16,7 @@ published: true
 ## **SOMMAIRE**
 
 
-```
+
 <a href="#1">1- Les types primitifs String et Numeric</a>
 
 <a href="#2">2- Les types primitifs Array et Hash</a>
@@ -26,8 +26,6 @@ published: true
 <a href="#4">4- Variables et identifieurs</a>
 
 <a href="#5">5- Créer une classe</a>
-```
-
 
 <a href="#6">6- Les accesseurs</a>
 
@@ -55,18 +53,25 @@ published: true
 
 <a href="#18">18- Les attributs de fichier</a>
 
-```
 <a href="#19">19- Fichiers temporaires et répertoires</a>
-<a href="#20">20- Sérialisation et persistance</a>
-<a href="#21">21- Les threads en ruby</a>
-<a href="#22">22- Synchroniser les threads</a>
-<a href="#23">23- La programmation système</a>
-<a href="#24">24- La programmation réseau</a>
-<a href="#25">25- Les tests automatisés, partie 1</a>
-<a href="#26">26- Les tests automatisés, partie 2</a>
-<a href="#27">27- Utiliser le debugger</a>
-```
 
+<a href="#20">20- Sérialisation et persistance</a>
+
+<a href="#21">21- Les threads en ruby</a>
+
+<a href="#22">22- Synchroniser les threads</a>
+
+<a href="#23">23- La programmation système</a>
+
+<a href="#24">24- La programmation réseau</a>
+
+<a href="#25">25- Les tests automatisés, partie 1</a>
+
+<a href="#26">26- Les tests automatisés, partie 2</a>
+
+<a href="#27">27- Utiliser le debugger</a>
+
+>
 
 <div id="1"><h2>1- LES TYPES PRIMITIFS STRING ET NUMERIC</h2></div>
 
