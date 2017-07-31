@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Apprendre Ruby
-date: 2017-07-15
+date: 2017-07-15T00:00:00.000Z
 tags:
   - backend
   - developpement
@@ -16,10 +16,10 @@ published: true
 ## **SOMMAIRE**
 
 
-
+<div>
 <a href="#1">1- Les types primitifs String et Numeric</a>
-
 <a href="#2">2- Les types primitifs Array et Hash</a>
+</div>
 
 <a href="#3">3- Les structures de controle</a>
 
@@ -4182,5 +4182,3 @@ Le prochaine fois que vous rencontrez un bug, plutôt que de mettre des
 d'arrêts aux endroits stratégiques et lancer votre debugger. Même si
 ce n'est pas naturel au début, vous deviendrez vite accro à cet outil
 indispensable.
-
-
