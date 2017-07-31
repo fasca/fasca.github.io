@@ -16,13 +16,12 @@ published: true
 ## **SOMMAIRE**
 
 
-<div>
+
 <a href="#1">1- Les types primitifs String et Numeric</a>
 <br/>
 <a href="#2">2- Les types primitifs Array et Hash</a>
 <br/>
 <a href="#3">3- Les structures de controle</a>
-</div>
 
 
 
