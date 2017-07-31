@@ -18,10 +18,13 @@ published: true
 
 <div>
 <a href="#1">1- Les types primitifs String et Numeric</a>
+<br/>
 <a href="#2">2- Les types primitifs Array et Hash</a>
+<br/>
+<a href="#3">3- Les structures de controle</a>
 </div>
 
-<a href="#3">3- Les structures de controle</a>
+
 
 <a href="#4">4- Variables et identifieurs</a>
 
