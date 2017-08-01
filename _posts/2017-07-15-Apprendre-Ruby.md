@@ -22,57 +22,58 @@ published: true
 <a href="#2">2- Les types primitifs Array et Hash</a>
 <br/>
 <a href="#3">3- Les structures de controle</a>
-
-
-
+<br/>
 <a href="#4">4- Variables et identifieurs</a>
-
+<br/>
 <a href="#5">5- Créer une classe</a>
-
+<br/>
 <a href="#6">6- Les accesseurs</a>
-
+<br/>
 <a href="#7">7- L'héritage</a>
-
+<br/>
 <a href="#8">8- La visibilité des méthodes</a>
-
+<br/>
 <a href="#9">9- Les bases de la réflexion</a>
-
+<br/>
 <a href="#10">10- Les symboles</a>
-
+<br/>
 <a href="#11">11- La classe Time</a>
-
+<br/>
 <a href="#12">12- Les classes Date et Datetime</a>
-
+<br/>
 <a href="#13">13- La classe Array</a>
-
+<br/>
 <a href="#14">14- Manipuler des chaînes de caractères</a>
-
+<br/>
 <a href="#15">15- Les expressions rationnelles, partie 1</a>
-
+<br/>
 <a href="#16">16- Les expressions rationnelles, partie 2</a>
-
+<br/>
 <a href="#17">17- Les entrées sorties</a>
-
+<br/>
 <a href="#18">18- Les attributs de fichier</a>
-
+<br/>
 <a href="#19">19- Fichiers temporaires et répertoires</a>
-
+<br/>
 <a href="#20">20- Sérialisation et persistance</a>
-
+<br/>
 <a href="#21">21- Les threads en ruby</a>
-
+<br/>
 <a href="#22">22- Synchroniser les threads</a>
-
+<br/>
 <a href="#23">23- La programmation système</a>
-
+<br/>
 <a href="#24">24- La programmation réseau</a>
-
+<br/>
 <a href="#25">25- Les tests automatisés, partie 1</a>
-
+<br/>
 <a href="#26">26- Les tests automatisés, partie 2</a>
-
+<br/>
 <a href="#27">27- Utiliser le debugger</a>
 
+<br/>
+<br/>
+<br/>
 
 
 <div id="1"><h2>1- LES TYPES PRIMITIFS STRING ET NUMERIC</h2></div>
