@@ -11,7 +11,7 @@ serie: programmation
 published: true
 ---
 
-Cours [grafikart](Grafikart.fr), apprendre ruby on rails
+Cours [grafikart](https://www.grafikart.fr/), apprendre ruby on rails
 
 # 1 INTRODUCTION
 
