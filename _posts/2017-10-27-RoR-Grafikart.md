@@ -22,17 +22,17 @@ Cours [grafikart](Grafikart.fr), apprendre ruby on rails
 ```shell
 /
 |_app
-|	|_asset (css,js,img)
-|	|_channels (web sockets, systeme de notification instantané) 
-|	|_controllers (la logique)
-|	|_helpers (ecrire des fonctions qui vont etre propagées et être dispo n'importe ou dans notre appli)
-|	|_jobs (permet de creer des tâches)
-|	|_mailers (gerer les mails à envoyer ex: inscription utilisateur)
-|	|_models (la bdd)
-|	|_views (html)
+|   |_asset (css,js,img)
+|   |_channels (web sockets, systeme de notification instantané) 
+|   |_controllers (la logique)
+|   |_helpers (ecrire des fonctions qui vont etre propagées et être dispo n'importe ou dans notre appli)
+|   |_jobs (permet de creer des tâches)
+|   |_mailers (gerer les mails à envoyer ex: inscription utilisateur)
+|   |_models (la bdd)
+|   |_views (html)
 |
 |_config (contient la conf de notre appli)
-|	|_databae.yml (content la conf de notre bdd)
+|	|_database.yml (content la conf de notre bdd)
 |	|_application.rb (indique comment doit fonctionner notre framework)
 |	|_environments (les differents env tq dev, prod ou test)
 |	|_routes.rb (les routes)
