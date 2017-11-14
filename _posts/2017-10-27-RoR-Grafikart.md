@@ -220,7 +220,7 @@ class CreatePostsTable < ActiveRecord::Migration[5.0]
 end
 
 enfin pour la MAJ on refait : `rails db:migrate`
-
+```
 
 ## 1.4 Les models
 
@@ -369,6 +369,7 @@ puis dans notre view, on met un btn pour voir l'article suivant. Pour voir un ar
 def show
 	@post=Post.find(params[:id])
 end
+```
 
 puis la vue de `show`:
 
@@ -404,7 +405,7 @@ On peut generer des formulaires avec `form helpers`,
 <% end %>
 ```
 
-Avant d'update il faut utiliser la methode `require` qui permet de voir si la variable existe (retourne les variables) sinon return error et `permit` qui permet d'autoriser certains chanmps pour securiser l'update.
+Avant d'update il faut utiliser la methode `require` qui permet de voir si la variable existe (retourne les variables) sinon return error et `permit` qui permet d'autoriser certains champs pour securiser l'update.
 
 `posts_controller.rb`:
 ```ruby
@@ -693,7 +694,7 @@ Pour info, la clé de chiffrement des cookies se trouve dans `config/secrets.yml
 Pour supprimer une variable de session:
 `session.delete(:user_id)`
 
-### Le `flash`
+### Le flash
 
 Le flash permet de sauvegarder quelquechose en session puis de la supprimer à la prochaine requete.
 
@@ -801,3 +802,192 @@ end
 
 
 ## 2.3 Controllers, Gerer plusieurs formats
+
+Pour qu'une page puisse être generé en JSON, en HTML et en XML, il faut utiliser la methode `respond_to` (localhost:3000/posts.json):
+
+`posts_controller.rb`:
+```ruby
+def index
+	cookies.delete(:username)
+	@posts=Post.all
+
+	respond_to do |format|
+		format.html
+		format.json { render json: @posts }
+		format.xml { render xml: @posts }
+
+		#on peut aussi recuperer que les variables qui nous interesse:
+		format.json { render json: @posts.as_json(only: [:name, :created_at, :id])}
+	end
+```
+
+La gem Jbuilder permet de rendre du JSON avec des vues plus specifiques...
+
+
+# 3 MODELS
+
+## 3.1 Models, Validation des données
+
+la methode `validates` permet de valider des variables:
+
+post.rb
+```ruby
+#verifier si le nom est bien present (pour create, save, update)
+validate :name, presence: true
+validate :name, presence: {message: 'ne doit pas etre vide'}
+
+#verifier la taille
+validate :name, length: {minimum: 20}
+validate :name, length: {maximum: 20}
+validate :name, length: {is: 20}
+validate :name, length: {in: 3..20}
+
+#verifier un format 
+validate :name, format: {with: /^[a-z]/}
+
+#verifier si un champs est unique dans la bdd
+validate: name, uniqueness: true
+
+#verifier si un champs a ete coché
+validate :name, acceptance: true
+
+#permet de faire la confirmation de mot de passe
+validate :password, confirmation: true
+validate :password, length: {is: 2}, on: :create #fonctionne lors de la creation d'un nouveau contenue
+validate :password, length: {is: 2}, if: :ma_methode_de_verification #methode a definir
+
+#utiliser une methode de validation
+validate :ma_methode_de_validation
+
+def ma_methode_de_validation
+	if name.nil? || name.length != 2
+		error.add(:name, :not_2, {message: 'il faut 2 caracteres'})
+	end
+end
+```
+
+dans la console irb:
+```
+# on créé une entree sans nom qui ne va pas etre persisté
+p = Post.create(name: '')
+
+p.valid?
+#=> false
+
+p.invalid?
+#=> true
+
+p.errors
+#=> Permet d'obtenir les differentes erreurs qu'il y a eu
+
+p.errors[:nom]
+#=> ["can't be blank"]  #Donc il y a erreur ici
+
+p.errors[:content]
+#=> [] # cide donc pas d'erreurs
+
+#pour avoir plus d'info sur l'erreur:
+p.errors.details[:nom]
+
+#On peut voir les messages d'erreurs directement avec:
+p.errors.messages
+
+#Pour avoir un tableau contenant tt les erreurs (utilisé pour les vues):
+p.errors.full_messages
+
+# renvoi une erreur avec exception en cas d'erreur (!)
+p = Post.create!(name: '')
+
+#pour forcer une sauvegarde:
+p.save(validate: false)
+
+```
+
+
+
+## 3.2 Models, les callbacks
+
+
+Tout comme les controllers, les modèles possèdent une série de callbacks qui permettent d'effectuer des opérations pendant les différents traitements. Il sera ainsi possible par exemple de modifier les données avant l'enregistrement par exemple.
+
+(before_validation...)
+
+
+`edit.html.erb`:
+```erb
+<% if @post.errors.any? %> #est-ce qu'il y a des erreurs?
+
+```
+
+
+
+### Available Callbacks
+
+Here is a list with all the available Active Record callbacks, listed in the same order in which they will get called during the respective operations:
+```
+ Creating an Object
+
+    before_validation
+    after_validation
+    before_save
+    around_save
+    before_create
+    around_create
+    after_create
+    after_save
+    after_commit/after_rollback
+
+ Updating an Object
+
+    before_validation
+    after_validation
+    before_save
+    around_save
+    before_update
+    around_update
+    after_update
+    after_save
+    after_commit/after_rollback
+
+ Destroying an Object
+
+    before_destroy
+    around_destroy
+    after_destroy
+    after_commit/after_rollback
+```
+
+
+
+## 3.3 Models, les scopes
+
+Comme nous l'avons vu au début, il sera possible de créer des requêtes élaborées avec les models. Si une requêtes se répète il peut être intéréssant de créer une méthode dans le modèle. Rails intègre un mécanisme pour simplifier les choses : Les scopes.
+
+
+L'ajout du scope ci-dessous créé une methode published qui execute le code present dans le bloc:
+
+`post.rb`:
+```ruby
+scope :published, -> (arg) { where(online: arg) }
+```
+
+`posts_controller.rb`:
+```ruby
+@posts = Post.published(arg).all
+```
+
+
+## 3.4 Models, associations
+
+Dans une application on aura très rapidement besoin de "croiser" des informations afin de relier certaines données (les articles auront des catégories par exemple). Pour cela, Rails permet de gérer des associations directement au niveau des modèles.
+
+```
+rails g migration add_category_to_posts category:references # references permet de creer une liaison entre les posts et les category
+```
+
+pour dire qu'un article appartient à une categorie, dans post.rb on ajoute "belongs_to :category"
+
+has_many = possede plusieurs
+
+voir: http://edgeguides.rubyonrails.org/association_basics.html
+
