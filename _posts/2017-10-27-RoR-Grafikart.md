@@ -830,7 +830,7 @@ La gem Jbuilder permet de rendre du JSON avec des vues plus specifiques...
 
 la methode `validates` permet de valider des variables:
 
-post.rb
+`post.rb`:
 ```ruby
 #verifier si le nom est bien present (pour create, save, update)
 validate :name, presence: true
