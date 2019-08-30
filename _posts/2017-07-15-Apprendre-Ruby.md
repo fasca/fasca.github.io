@@ -15,8 +15,6 @@ published: true
 
 ## **SOMMAIRE**
 
-
-
 <a href="#1">1- Les types primitifs String et Numeric</a>
 <br/>
 <a href="#2">2- Les types primitifs Array et Hash</a>
@@ -75,6 +73,7 @@ published: true
 <br/>
 <br/>
 
+---
 
 <div id="1"><h2>1- LES TYPES PRIMITIFS STRING ET NUMERIC</h2></div>
 
@@ -1237,7 +1236,7 @@ t.yday
 
 ### Les fuseaux horaire
 
-Nous avons également de quoi manipuler les fuseaux horaire. Quel est le fuseau horaire ?`
+Nous avons également de quoi manipuler les fuseaux horaire. Quel est le fuseau horaire ?
 
 ```ruby
 t.zone
@@ -2060,7 +2059,7 @@ re =~ "123-45-67"
 re =~ "1-45-67"
 ```
 
-Il faut savoir que les quantificateurs "*", "+" et "{}" sont gourmands par défaut, ils vont essayer de récupérer la plus grande partie de la chaîne qui correspond :
+Il faut savoir que les quantificateurs `*`, `+` et `{}` sont gourmands par défaut, ils vont essayer de récupérer la plus grande partie de la chaîne qui correspond :
 
 ```ruby
 s = "Il est à la fois le plus petit et le plus grand"

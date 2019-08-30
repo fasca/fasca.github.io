@@ -9,6 +9,18 @@ description: PHP securité...
 categories: backend web
 serie: dev web
 ---
+
+**Sommaire**
+
+- [LES ERREURS](#1)
+- [ARCHITECTURE DU SITE](#2)
+- [RECUPERER DES LIBRAIRIES](#3)
+- [LES PROTOCOLES](#4)
+- [LA FAILLE XSS](#5)
+- [LES ATTAQUES CSRF](#6)
+
+---
+
 Voir la configuration php :
 
 ```php
@@ -21,7 +33,7 @@ Le fichier de conf de php :
 * **php.ini**
 
 
-## LES ERREURS
+## LES ERREURS <a id="1"></a>
 
 * on peut activer la ligne `display_errors = On` dans le fichier **php.ini**.
 
@@ -35,7 +47,7 @@ ini_set('display_errors',true);
 
 Ensuite dans le navigateur, il faut activier l'inspecteur d'elements, choisisez l'onglet **NETWORK** pour voir ce qui se passe coté HTTP quand on reçoit des requetes PHP.
 
-## ARCHITECTURE DU SITE
+## ARCHITECTURE DU SITE <a id="2"></a>
 
 * Ne pas nommer simplement les fichier tels que `config.php`, il vaut mieux obfusquer le nom du fichier avec un nom plus complexe.
 
@@ -50,7 +62,7 @@ exemple :
     |- app.php  (apache lit à partir d'ici)
 ```
 
-## RECUPERER DES LIBRAIRIES
+## RECUPERER DES LIBRAIRIES <a id="3"></a>
 
 * Aller dans le site www.phpclasses.org permet de récuperer des classes déja faites (classe d'upload d'image, detection de spam, framework rest, classe pour envoyer des mail etc...) puis on utilise `require` et `include`...
 
@@ -122,7 +134,7 @@ Ceci ajoute la version de swiftmailer dans le .json.
 Cela crée aussi un dossier vendor contenant les sources de swiftmailer, des infos dans le dossier composer et un autoloading de composer 'autoload.php' qui va autoloader des infos depuis composer.
 
 
-## LES PROTOCOLES
+## LES PROTOCOLES <a id="4"></a>
 
 HTTP port 80 données en claire.
 
@@ -131,7 +143,7 @@ HTTPS port 443 donnés chiffrés.
 Si on veut utiliser HTTPS sur notre serveur, on sera obligé d'acheter/generer un certificat SSL qu'il faudra installer sur le serveur apache.
 
 
-## LA FAILLE XSS
+## LA FAILLE XSS <a id="5"></a>
 
 Vise à exploiter une injection de contenue dans le navigateur.
 
@@ -175,7 +187,7 @@ htmlentities($_GET['name']) #Convertit tous les caractères éligibles en entit�
 ```
  
  
-## LES ATTAQUES CSRF
+## LES ATTAQUES CSRF <a id="6"></a>
 
 Permet d'inciter un utilisateur de lancer une attaque sans même que l'utilisateur s'en rende compte.
 Il faut utiliser **GET** dans de l'affichage et non dans la soumission d'information.

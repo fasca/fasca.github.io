@@ -13,9 +13,26 @@ published: true
 
 Cours [grafikart](https://www.grafikart.fr/), apprendre ruby on rails
 
+**Sommaire**
+
+- [1.1 Installation](#1)
+- [1.2 Notre 1ere page](#2)
+- [1.3 Les migrations](#3)
+- [1.4 Les models](#4)
+- [1.5 Le CRUD](#5)
+- [2.1 Controllers, Les filtres](#6)
+- [2.2 Controllers, Sessions et Cookies](#7)
+- [2.3 Controllers, Gerer plusieurs formats](#8)
+- [3.1 Models, Validation des données](#9)
+- [3.2 Models, les callbacks](#10)
+- [3.3 Models, les scopes](#11)
+- [3.4 Models, associations](#12)
+
+---
+
 # 1 INTRODUCTION
 
-## 1.1 Installation
+## 1.1 Installation <a id="1"></a>
 
 ### L'arbo
 
@@ -71,7 +88,7 @@ Voir la doc rails (guide) pour plus d'info:
 * guides.rubyonrails.org
 
 
-## 1.2 Notre 1ere page
+## 1.2 Notre 1ere page <a id="2"></a>
 
 ### Les routes
 
@@ -184,7 +201,7 @@ On peut rendre également le paramètre `name` optionnel dans `routes.rb`:
 get '/bonjour(/:name)', to: 'pages#salut', as: 'salut'
 ```
 
-## 1.3 Les migrations
+## 1.3 Les migrations <a id="3"></a>
 
 Les migrations permettent de definir les modification à faire dans la BDD (ajout/suppr de champs, un pseudo git, ror utilise les numéros `schema_migration` pour reconstruire les tables dans le bon ordre de création)
 
@@ -222,7 +239,7 @@ end
 enfin pour la MAJ on refait : `rails db:migrate`
 ```
 
-## 1.4 Les models
+## 1.4 Les models <a id="4"></a>
 
 pour creer un model il faut créér une classe dans `app/models/`.
 
@@ -315,7 +332,7 @@ Puis créér la vue `index.html.erb`:
 ```
 
 
-## 1.5 Le CRUD
+## 1.5 Le CRUD <a id="5"></a>
 
 
 * **Create**, permet de créer un nouvel enregistrement, `POST: /{resources}`
@@ -609,7 +626,7 @@ Pour annuler le scaffold: `rails d scaffold User username:string bio:txt`
 
 # 2 CONTROLLERS
 
-## 2.1 Controllers, Les filtres
+## 2.1 Controllers, Les filtres <a id="6"></a>
 
 Les filtres nous permettent d'effectuer des operation avant ou apres chaques actions:
 
@@ -662,7 +679,7 @@ skip_before_action :set_post
 ```
 
 
-## 2.2 Controllers, Sessions et Cookies
+## 2.2 Controllers, Sessions et Cookies <a id="7"></a>
 
 les session se configure avec le fichier `config/initializers/session_store.rb` (cookie, cache, bdd ou encore redis...).
 
@@ -801,7 +818,7 @@ end
 
 
 
-## 2.3 Controllers, Gerer plusieurs formats
+## 2.3 Controllers, Gerer plusieurs formats <a id="8"></a>
 
 Pour qu'une page puisse être generé en JSON, en HTML et en XML, il faut utiliser la methode `respond_to` (localhost:3000/posts.json):
 
@@ -826,7 +843,7 @@ La gem Jbuilder permet de rendre du JSON avec des vues plus specifiques...
 
 # 3 MODELS
 
-## 3.1 Models, Validation des données
+## 3.1 Models, Validation des données <a id="9"></a>
 
 la methode `validates` permet de valider des variables:
 
@@ -905,7 +922,7 @@ p.save(validate: false)
 
 
 
-## 3.2 Models, les callbacks
+## 3.2 Models, les callbacks <a id="10"></a>
 
 
 Tout comme les controllers, les modèles possèdent une série de callbacks qui permettent d'effectuer des opérations pendant les différents traitements. Il sera ainsi possible par exemple de modifier les données avant l'enregistrement par exemple.
@@ -959,7 +976,7 @@ Here is a list with all the available Active Record callbacks, listed in the sam
 
 
 
-## 3.3 Models, les scopes
+## 3.3 Models, les scopes <a id="11"></a>
 
 Comme nous l'avons vu au début, il sera possible de créer des requêtes élaborées avec les models. Si une requêtes se répète il peut être intéréssant de créer une méthode dans le modèle. Rails intègre un mécanisme pour simplifier les choses : Les scopes.
 
@@ -977,7 +994,7 @@ scope :published, -> (arg) { where(online: arg) }
 ```
 
 
-## 3.4 Models, associations
+## 3.4 Models, associations <a id="12"></a>
 
 Dans une application on aura très rapidement besoin de "croiser" des informations afin de relier certaines données (les articles auront des catégories par exemple). Pour cela, Rails permet de gérer des associations directement au niveau des modèles.
 
