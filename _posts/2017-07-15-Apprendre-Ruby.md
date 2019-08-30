@@ -71,7 +71,6 @@ published: true
 
 <br/>
 <br/>
-<br/>
 
 ---
 
