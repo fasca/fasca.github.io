@@ -2498,7 +2498,7 @@ Ne pas y oublier le `j`, un alias du helper `escape_javascript`.
 ### Resources <a id="70"></a>
 
 #### Rails Guide
-Lisez et relisez la [documentation Rails Guide](http://edge.rubyonrails.org/), c’est une mine d’or et la réponse à votre question s’y trouve sans doute. Je vous conseille de lire tous les chapitres sur [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html) comme un roman.
+Lisez et relisez la [documentation Rails Guide](https://guides.rubyonrails.org/), c’est une mine d’or et la réponse à votre question s’y trouve sans doute. Je vous conseille de lire tous les chapitres sur [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html) comme un roman.
 
 #### Vidéos
 [RailsCasts](http://railscasts.com/) est un projet qui a beaucoup contribué à l’essor de Rails. Mis en sommeil en 2013 par son fondateur, la plupart des vidéos sont encore pertinentes.
