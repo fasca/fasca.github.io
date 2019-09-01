@@ -71,8 +71,8 @@ published: true
 - [Côté controlleur](#56)
 - [Exercice](#57)
 - [Coté Back Office](#58)
-- [Cloudinary](#59)
-- [Installation dans Rails](#60)
+- Cloudinary
+- Installation dans Rails
 - [Configuration](#61)
 - [Upload d’une image en console](#62)
 - [Affichage de l’image dans une page statique](#63)
@@ -1851,7 +1851,7 @@ Ensuite pour gérer plus finement les permissions, plutôt que de parsemer les c
 
 ## COURS N18
 
-### Cloudinary <a id="59"></a>
+### Cloudinary
 
 [Cloudinary](http://cloudinary.com/) est un service de stockage d’image dans le cloud. Il permet également d’automatiser des traitements classiques lorsqu’on manipule des images dans un contexte de site web, à savoir les redimensionnements et compressions d’images.
 
@@ -1863,7 +1863,7 @@ Aperté : Nous ne pouvons pas utiliser Heroku comme espace de stockage des image
 
 
 
-### Installation dans Rails <a id="60"></a>
+### Installation dans Rails
 
 #### La gem `figaro`
 
