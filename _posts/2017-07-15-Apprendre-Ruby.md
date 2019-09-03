@@ -5,9 +5,11 @@ date: 2017-07-15T00:00:00.000Z
 tags:
   - backend
   - developpement
-description: cours rapide sur Ruby
-categories: developpement backend
-serie: programmation
+  - script
+  - ruby
+description: cours rapide sur Ruby...
+categories: Developpement
+serie: Backend
 published: true
 ---
 

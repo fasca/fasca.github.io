@@ -4,10 +4,13 @@ title: RoR Grafikart
 date: 2017-10-27
 tags:
   - backend
-  - developpement
+  - web
+  - ruby
+  - rails
+  - script
 description: Base du framework RoR...
-categories: developpement backend
-serie: programmation
+categories: Web
+serie: Backend
 published: true
 ---
 

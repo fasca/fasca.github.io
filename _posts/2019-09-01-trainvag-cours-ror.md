@@ -4,10 +4,13 @@ title: trainvag cours RoR
 date: 2019-09-01
 tags:
   - backend
-  - developpement
+  - web
+  - ruby
+  - rails
+  - script
 description: cours sur RoR...
-categories: developpement backend
-serie: programmation
+categories: Web
+serie: Backend
 published: true
 ---
 

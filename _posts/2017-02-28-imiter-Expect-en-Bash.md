@@ -5,9 +5,12 @@ date: 2017-02-28T00:00:00.000Z
 tags:
   - backend
   - system
-description: Imiter Expect en Bash
-categories: system backend
-serie: programmation
+  - bash
+  - except
+  - script
+description: Imiter Expect en Bash...
+categories: Systeme
+serie: Backend
 published: true
 ---
 

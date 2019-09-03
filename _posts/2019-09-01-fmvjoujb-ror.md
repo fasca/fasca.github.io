@@ -4,10 +4,13 @@ title: fmvjoujb RoR
 date: 2019-09-01
 tags:
   - backend
-  - developpement
+  - script
+  - ruby
+  - rails
+  - web
 description: debuter avec RoR...
-categories: developpement backend
-serie: programmation
+categories: Web
+serie: Backend
 published: true
 ---
 

@@ -5,9 +5,12 @@ date: 2017-02-17T00:00:00.000Z
 tags:
   - backend
   - web
+  - php
+  - securite
+  - script
 description: PHP securité...
-categories: backend web
-serie: dev web
+categories: Web
+serie: Backend
 ---
 
 **Sommaire**
