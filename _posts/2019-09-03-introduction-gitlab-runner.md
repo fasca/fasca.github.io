@@ -83,14 +83,14 @@ Dans le manifeste de GitLab CI/CD vous pouvez définir un nombre illimité de `j
 
 Voici comment déclarer un `job` le plus simplement possible :
 
-```yml
+```yaml
 job:
   script: echo 'my first job'
 ```
 
 Et si vous voulez déclarer plusieurs `jobs` :
 
-```yml
+```yaml
 job:1:
   script: echo 'my first job'
 
@@ -117,7 +117,7 @@ La déclaration `script` est donc la seule obligatoire dans un `job`. Cette déc
 
 Il peut appeler un ou plusieurs script(s) de votre projet, voire exécuter une ou plusieurs ligne(s) de commande.
 
-```yml
+```yaml
 job:script:
   script: ./bin/script/my-script.sh ## Appel d'un script de votre projet
 
@@ -139,7 +139,7 @@ job:commands:
 
 Ces déclarations permettront d’exécuter des actions avant et après votre script principal. Ceci peut être intéressant pour bien diviser les actions à faire lors des `jobs`, ou bien appeler ou exécuter une action avant et après chaque `job`.
 
-```yml
+```yaml
 before_script: # Exécution d'une commande avant chaque `job`
   - echo 'start jobs'
 
@@ -175,7 +175,7 @@ job:overwrite:all:
 
 Cette déclaration est simplement l’image docker qui sera utilisée lors d’un job ou lors de tous les jobs.
 
-```yml
+```yaml
 image: alpine # Image utilisée par tous les `jobs`, ce sera l'image par défaut
 
 job:node: # Job utilisant l'image node
@@ -190,7 +190,7 @@ job:alpine: # Job utilisant l'image par défaut
 
 Cette déclaration permet de grouper des `jobs` en étapes. Par exemple on peut faire une étape de `build`, de `codestyling`, de `test`, de `code coverage`, de `deployment`, ….
 
-```yml
+```yaml
 stages: # Ici on déclare toutes nos étapes
   - build
   - test
@@ -237,7 +237,7 @@ Je vais vous montrer trois exemples d’utilisation :
 
 Dans son utilisation la plus simple, le only et le except se déclarent comme ceci :
 
-```yml
+```yaml
 job:only:master:
   script: make deploy
   only:
@@ -253,7 +253,7 @@ job:except:master:
 
 Dans son utilisation la plus complexe, le only et le except s’utilisent comme ceci :
 
-```yml
+```yaml
 job:only:master:
   script: make deploy
   only:
@@ -283,7 +283,7 @@ Comme pour les directives `only` et `except`, la directive `when` est une contra
 - `manual` : le job s’exécutera uniquement par une action manuelle
 
 
-```yml
+```ymal
 stages:
   - build
   - test
@@ -318,7 +318,7 @@ job:clean:
 
 Cette directive permet d’accepter qu’un job échoue sans faire échouer la pipeline.
 
-```yml
+```yaml
 stages:
   - build
   - test
@@ -341,7 +341,7 @@ Comme je vous l’ai dit en début d’article, avec GitLab Runner vous pouvez h
 
 Chaque runner que vous définissez sur votre serveur à un nom, si vous mettez le nom du runner en `tags`, alors ce runner sera exécuté.
 
-```yml
+```yaml
 job:tag:
   script: yarn install
   tags:
@@ -352,7 +352,7 @@ job:tag:
 
 Cette déclaration permet d’ajouter des services (container docker) de base pour vous aider dans vos jobs. Par exemple si vous voulez utiliser une base de données pour tester votre application c’est dans services que vous le demanderez.
 
-```yml
+```yaml
 test:functional:
   image: registry.gitlab.com/username/project/php:test
   services:
@@ -374,7 +374,7 @@ Il est possible de spécifier :
 - une condition `on_stop`,
 - une `action` en réponse de la condition précédente.
 
-```yml
+```yaml
 ...
 
 deploy:demo:
@@ -399,7 +399,7 @@ Le bouton `undo` permet de redéployer, le bouton `external link` permet d’all
 
 `on_stop` et `action` seront utilisés pour ajouter une action à la fin du déploiement, si vous souhaitez arrêter votre application sur commande. Utile pour les environnements de démonstration.
 
-```yml
+```yaml
 ...
 
 deploy:demo:
@@ -421,7 +421,7 @@ Voici le lien officiel de la documentation sur les [environments](https://docs.g
 
 Cette déclaration permet de définir des variables pour tous les `jobs` ou pour un job précis. Ceci revient à déclarer des variables d’environnement.
 
-```yml
+```yaml
 ...
 variables: # Déclaration de variables pour tous les `job`
   SYMFONY_ENV: prod
@@ -453,7 +453,7 @@ Plusieurs sous-directives sont possibles :
 - untracked : facultative, elle permet de spécifier que les fichiers ne doivent pas être suivis par votre dépôt git en cas d’un `push` lors de votre pipeline.
 - policy : facultative, elle permet de dire que le cache doit être récupéré ou sauvegardé lors d’un job (`push` ou `pull`).
 
-```yml
+```yaml
 stages:
   - build
   - deploy
@@ -488,7 +488,7 @@ Nous y retrouvons cinq sous-directives possibles :
 - when : facultative, elle permet de définir quand `l’artifact` doit être créé. Trois choix possibles `on_success`, `on_failure`, `always`. La valeur `on_success` est la valeur par défaut.
 - expire_in : facultative, elle permet de définir un temps d’expiration
 
-```yml
+```yaml
 job:
   script: make build
   artifacts:
@@ -503,7 +503,7 @@ job:
 
 Cette déclaration fonctionne avec les `artifacts`, il rend un `job` dépendant d’un `artifact`. Si l’`artifact` a expiré ou a été supprimé / n’existe pas, alors la pipeline échouera.
 
-```yml
+```yaml
 build:artifact:
   stage: build
   script: echo hello > artifact.txt
@@ -528,7 +528,7 @@ deploy:ok:
 
 Cette déclaration permet de spécifier une expression régulière pour récupérer le code coverage pour un `job`.
 
-```yml
+```yaml
 ...
 
 test:unit:
@@ -550,7 +550,7 @@ Voici un tip qui permet de pouvoir voir en un clin d’œil les répercussions d
 
 Dans un premier temps, nous allons modifier notre `.gitlab-ci.yml`
 
-```yml
+```yaml
 before_script:
   - composer install
 
@@ -586,7 +586,7 @@ Pour plus d’infos : gitlab-ci: [documentation](https://docs.gitlab.com/ee/user
 
 Cette déclaration permet de ré-exécuter le `job` en cas d’échec. Il faut indiquer le nombre de fois où vous voulez ré-exécuter le `job`.
 
-```yml
+```yaml
 job:retry:
   script: echo 'retry'
   retry: 5
@@ -613,7 +613,7 @@ include:
 
 - template en local
 
-```yml
+```yaml
 # template-ci/.lint-template.yml
 
 job:lint:
@@ -624,7 +624,7 @@ job:lint:
 
 - template à distance
 
-```yml
+```yaml
 # https://gitlab.com/awesome-project/raw/master/template-ci/.test-template.yml
 
 job:test:
@@ -635,7 +635,7 @@ job:test:
 
 - manifeste principal
 
-```yml
+```yaml
 # .gitlab-ci.yml
 
 include:
@@ -660,7 +660,7 @@ job:test:
 
 Voici ce que gitlab CI/CD va interpréter :
 
-```yml
+```yaml
 stages:
   - lint
   - test
@@ -676,7 +676,7 @@ job:lint:
 
 job:test:
   stage: test
-  script: # on remplace la déclaration `script` du "template" https://gitlab.com/awesome-project/raw/master/template-ci/.test-template.yml
+  script: # on remplace la déclaration `script` du "template" https://gitlab.com/awesome-project/raw/master/template-ci/.test-template.yaml
     - yarn install
     - yarn unit
 ```
@@ -687,7 +687,7 @@ Ceci peut être intéressant dans le cas où votre manifeste est gros, et donc p
 
 Cette fonctionnalité permet de faire des templates réutilisables plusieurs fois.
 
-```yml
+```yaml
 .test_template: &test_template
   stage: test
   image: registry.gitlab.com/username/project/php:test
@@ -714,7 +714,7 @@ test:functional:
 
 Voici ce que gitlab CI/CD va interpréter :
 
-```yml
+```yaml
 test:unit:
   stage: test
   image: registry.gitlab.com/username/project/php:test
