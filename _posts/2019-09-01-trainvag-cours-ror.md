@@ -2518,7 +2518,7 @@ Dans un autre style, [Ruby Toolbox](https://www.ruby-toolbox.com/) est très bie
 Regardez du côté des [Add-ons Heroku](https://elements.heroku.com/addons) il y a plein de choses pour envoyer des emails, des SMS, intégrer de la recherche, etc.
 
 #### Meetups
-N’hésitez pas à venir à [Paris.rb](http://www.meetup.com/fr-FR/parisrb/) qui fait un meetup tous les premiers mardis du mois, on y parle de Ruby et Rails. En province, il y a également des meetups nottamment Ruby Nord, Ruby Bordeaux ou encore Lyon.rb (et j’en passe).
+N’hésitez pas à venir à Paris.rb (http://www.meetup.com/fr-FR/parisrb/) qui fait un meetup tous les premiers mardis du mois, on y parle de Ruby et Rails. En province, il y a également des meetups nottamment Ruby Nord, Ruby Bordeaux ou encore Lyon.rb (et j’en passe).
 
 #### Newsletter
 Vous pouvez vous abonner à [Ruby Weekly](http://rubyweekly.com/) qui paraît chaque jeudi et qui est pas mal du tout pour suivre l’actu de la communauté Ruby.
