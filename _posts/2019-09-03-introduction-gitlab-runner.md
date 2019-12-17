@@ -598,6 +598,19 @@ Pour cette fonctionnalité il vous faudra un compte premium. Cette fonctionnalit
 
 Les fichiers sont toujours évalués en premier et fusionnés récursivement. Vous pouvez surcharger ou remplacer des déclarations des “templates”.
 
+### Premier exemple
+
+```yaml
+# .gitlab-ci.yml
+
+include:
+  - project: 'projets/devops/ci-includes' #Repo du projet GIT
+    ref: stable #Branche qui nous interesse
+    file: '/dossier1/sous-dossierA/toto/default.yml' #Path du fichier qui nous interesse
+```
+
+### Deuxieme exemple
+
 - template en local
 
 ```yml
