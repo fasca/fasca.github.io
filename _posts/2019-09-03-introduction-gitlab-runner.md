@@ -341,6 +341,8 @@ Comme je vous l’ai dit en début d’article, avec GitLab Runner vous pouvez h
 
 Chaque runner que vous définissez sur votre serveur à un nom, si vous mettez le nom du runner en `tags`, alors ce runner sera exécuté.
 
+Donc il est possible que le runner soit heberge dans differents serveurs. Les runner sont configures lors de leurs creation (voir doc gitlab create runner).
+
 ```yaml
 job:tag:
   script: yarn install
