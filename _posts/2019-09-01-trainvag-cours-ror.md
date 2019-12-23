@@ -14,6 +14,8 @@ serie: Backend
 published: true
 ---
 
+pour installer RoR rapidement: https://gorails.com/setup/ubuntu/20.04
+
 **Sommaire**
 
 - [Le Design Pattern MVC](#1)
