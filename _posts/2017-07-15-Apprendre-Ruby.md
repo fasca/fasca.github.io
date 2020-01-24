@@ -214,7 +214,7 @@ Comme vous pouvez vous en douter, il existe en Ruby le mot-clé `if` qui permet 
 
 On peut donc écrire des choses comme :
 
-```
+```ruby
 if 1 == 1
 	puts "OK"
 end
@@ -224,7 +224,7 @@ On utilise dans cet exemple le double égal pour comparer deux valeurs entre ell
 
 On peut aussi créer des conditions à deux branches qui permettent de couvrir le cas où les valeurs sont égales mais aussi le cas où elles ne le sont pas. Pour ce faire, on utilise le mot-clé `else` en coordination avec le mot-clé `if` :
 
-```
+```ruby
 if 1 > 2
 	puts "1 est plus grand que 2"
 else
@@ -238,7 +238,7 @@ On utilise ici le chevron pour vérifier si la valeur de gauche est plus grande 
 
 Pour aller plus loin, on peut encore ajouter des branches à notre condition grâce au mot-clé `elsif`. C'est un cas plus rare mais c'est une possibilité du langage. On peut donc écrire des conditions du type :
 
-```
+```ruby
 if false
 	puts "faux"
 elsif true
@@ -254,7 +254,7 @@ C'est donc la branche `elsif` qui remplie la condition et on affiche "vrai".
 
 Très souvent on a besoin d'inverser une condition, on peut donc utiliser le mot-clé `if` avec un point d'exclamation devant la condition pour l'inverser :
 
-```
+```ruby
 if !false
 	puts "OK"
 end
@@ -262,7 +262,7 @@ end
 
 mais il existe un idiome en Ruby pour exprimer cette condition inversée, c'est le mot clé `unless`. On peut donc ré-écrire notre condition de la façon suivante :
 
-```
+```ruby
 unless false
 	puts "OK"
 end
@@ -276,13 +276,13 @@ Dans bien des cas, on souhaite écrire une condition qui ne va concerner qu'une 
 
 Elles consistent à être placées directement après la ligne de code concernée et sont une fois encore un moyen d'améliorer la lisibilité du code :
 
-```
+```ruby
 puts "Ok" if true
 ```
 
 On peut également utiliser le `unless` en version post-fixée :
 
-```
+```ruby
 puts "Ok" unless false
 ```
 
@@ -292,7 +292,7 @@ Pour les cas plus complexes, on utilisera souvent la structure de contrôle `cas
 
 En Ruby cette structure de contrôle est bien plus puissante. Elle ne se cantonne pas à vérifier une égalité simple pour chaque branche, elle permet d'embarquer des conditions évoluées :
 
-```
+```ruby
 case "Ceci est une chaîne"
 when "foo"
 	puts "Branche 1"
@@ -332,7 +332,7 @@ Les conventions en Ruby veulent que si une variable contient plusieurs mots, on 
 
 Des exemples de variables locales pourraient donc être :
 
-```
+```ruby
 user = "Nico"
 _unused = "Non utilisé"
 some_var = 1234
@@ -346,7 +346,7 @@ Viennent ensuite les variables globales qui commencent obligatoirement par un `$
 
 Voici quelques exemples de variables globales :
 
-```
+```ruby
 $version = "1.2.6"
 $NOT_A_CONST = 42
 ```
@@ -355,14 +355,14 @@ Nous avons ensuite les variables d'instances qui sont un type de variable très 
 
 Ces variables d'instances commencent toujours par un `@` et suivent les mêmes conventions que les variables locales. Voici quelques exemples :
 
-```
+```ruby
 @foobar = "baz"
 @some_var_123 = 123
 ```
 
 Nous avons également les variables de classe qui contiennent des données accessibles à l'ensemble d'une classe et des ses instances. Ces variables sont partagées entre tous les objets issus de la classe en question. Les variables de classe commencent par deux `@`. Voici quelques exemples :
 
-```
+```ruby
 @@counter = 10
 @@file_path = "/some/dir/file.txt"
 ```
@@ -373,7 +373,7 @@ Les constantes sont destinées à stocker des informations qui ne sont pas appel
 
 Voici quelques exemples de noms de constantes :
 
-```
+```ruby
 STATUSES = ["draft", "published", "pinned"]
 API_URL = "http://something.com"
 ```
@@ -384,7 +384,7 @@ Dans la pratique, en Ruby, les développeurs aiment encapsuler les logiques mét
 
 Voyons donc un exemple dans le contexte d'une classe. Ne vous inquiétez pas, nous aurons l’occasion de voir plus en détail le fonctionnement des classes dans les prochains épisodes :
 
-```
+```ruby
 class User
 	MIN_AGE = 18
 	MAX_AGE = 90
@@ -408,7 +408,7 @@ Cette classe contient deux méthodes, le constructeur qui permet de préparer l'
 
 Pour finir utilisons cette classe nouvellement crée :
 
-```
+```ruby
 User.new("nico")
 User.new("martin")
 User.new("jon")
@@ -445,7 +445,7 @@ Il est intéressant de noter que puisqu'en Ruby tout est objet, les classes elle
 
 Créons une classe `Animal` qui permettra de gérer des animaux.
 
-```
+```ruby
 class Animal
   WILD = true
 
@@ -476,13 +476,13 @@ Finalement on a définie une méthode de classe `instances_count` qui est donc p
 
 On va maintenant utiliser cette classe pour tester son comportement. On commence par charger notre fichier dans IRB grâce à la méthode `load`
 
-```
+```ruby
 load 'animal.rb'
 ```
 
 On peut utiliser notre classe.
 
-```
+```ruby
 a1 = Animal.new('Simba', 'male', 5)
 a2 = Animal.new('Cheetah', 'male', 20)
 
@@ -492,13 +492,13 @@ a2.description
 
 Vérifions maintenant le nombre d'instances créées :
 
-```
+```ruby
 Animal.instances_count
 ```
 
 On peut également accéder à la constante depuis l'extérieur de la classe grâce à la notation `::` :
 
-```
+```ruby
 Animal::WILD
 ```
 
@@ -521,7 +521,7 @@ Bien souvent vous aurez besoin de pouvoir modifier les propriétés d'une instan
 
 En Ruby ce sont les accesseurs. Ce sont des méthodes dédiées à la lecture ou à la modification du contenu d'une variable d'instance. Nous allons améliorer notre classe existante pour pouvoir lire et modifier le contenu de la variable d'instance `@age` :
 
-```
+```ruby
 class Animal
   WILD = true
 
@@ -554,7 +554,7 @@ On a donc ajouter la méthode `age` qui fait office de "getter", son but est sim
 
 Testons cette classe améliorée :
 
-```
+```ruby
 load 'animal.rb'
 
 a = Animal.new('Simba', 'male', 5)
@@ -569,7 +569,7 @@ a.description
 
 On a donc à disposition trois méthodes qui sont `attr_reader`, `attr_writer` et `attr_accessor` qui permettent respectivement de créer un "getter", un "setter" ou les deux à la fois. On peut donc modifier notre classe pour la simplifier :
 
-```
+```ruby
 class Animal
   WILD = true
 
@@ -596,7 +596,7 @@ On a donc supprimer nos deux méthodes dédiées à la gestion de l'âge pour le
 
 On peut recharger notre code dans IRB et vérifier que ça fonctionne toujours. On remarque un message d’avertissement qui nous dit que nous avons redéfinie une constante. Effectivement le fait de recharger notre fichier a écrasé la constante définie lors du premier chargement :
 
-```
+```ruby
 load 'animal.rb'
 
 a = Animal.new('Simba', 'male', 5)
@@ -630,7 +630,7 @@ Imaginez que sur la base de notre classe `Animal` nous voulions créer des chien
 
 Nous allons donc créer notre première classe qui hérite de la classe `Animal`. Ce sera la classe `Dog`. Dans cette classe, nous allons créer une méthode qui permet à l'animal d'émettre son cri. En Ruby, l'héritage se fait grâce à l'opérateur `<` :
 
-```
+```ruby
 class Dog < Animal
   WILD = false
 
@@ -642,7 +642,7 @@ end
 
 On a donc défini une classe `Dog` qui hérite de la classe `Animal`. De ce fait elle possède déjà tous les comportements de la classe `Animal` :
 
-```
+```ruby
 load 'animal.rb'
 load 'dog.rb'
 
@@ -653,13 +653,13 @@ d.description
 
 Mais cette classe possède également une nouvelle méthode qu'on peut appeler :
 
-```
+```ruby
 d.cry
 ```
 
 Ce qui est impossible sur un objet de la classe `Animal` :
 
-```
+```ruby
 a = Animal.new('Simba', 'male', 5)
 a.cry
 ```
@@ -668,7 +668,7 @@ Une exception `NoMethodError` est levée.
 
 On voit également qu'on a redéfini la constante `WILD` parce que les chiens ne sont pas des animaux sauvages :
 
-```
+```ruby
 Dog::WILD
 ```
 
@@ -676,7 +676,7 @@ Dog::WILD
 
 L'héritage laisse aussi la liberté de ré-écrire entièrement ou en partie des méthodes de la classe parent. On va donc modifier la description pour qu'elle soit plus personnelle :
 
-```
+```ruby
 class Dog < Animal
   WILD = false
 
@@ -692,7 +692,7 @@ end
 
 On a donc complètement écrasé la définition du parent pour avoir un comportement personnalisé :
 
-```
+```ruby
 load 'dog.rb'
 
 d = Dog.new('Snoopy', 'male', 10)
@@ -701,7 +701,7 @@ d.description
 
 On aurait pu vouloir garder le comportement par défaut mais simplement y ajouter du comportement additionnel. C'est possible grâce au mot-clé `super` qui permet d'appeler la méthode correspondante du parent. Modifions notre classe :
 
-```
+```ruby
 class Dog < Animal
   WILD = false
 
@@ -718,7 +718,7 @@ end
 
 Testons à nouveau :
 
-```
+```ruby
 load 'dog.rb'
 
 d = Dog.new('Snoopy', 'male', 10)
