@@ -315,7 +315,7 @@ Rails récupère tous les paramètres dans le hash "params".
 
 ### URL dynamique
 Prenons un exemple :
-```
+```ruby
 # config/routes.rb
 Rails.application.routes.draw do
   get "/say/:message" => "pages#speak"
@@ -336,7 +336,7 @@ Dans ce cas :
     Le paramètre dynamique de l’URL s’appelle ici message (l’équivalent du username sur Facebook ou de la city sur Airbnb)
 
 AUTRE EXEMPLE URL DYNAMIQUE:
-```
+```ruby
 # config/routes.rb
 Rails.application.routes.draw do
   get "/products/:id" => "products#show"
@@ -360,7 +360,7 @@ end
 ```
 
 http://localhost:3000/products/0 renvoie dans show.html.erb
-```
+```ruby
 <%= @product[:name] %> ; <%= @product[:category] %>
 ```
 soit "basketball ; en equipe"
@@ -369,7 +369,7 @@ _
 
 ### Query string
 Prenons un autre exemple :
-```
+```ruby
 # config/routes.rb
 
 Rails.application.routes.draw do
@@ -391,7 +391,7 @@ http://localhost:3000/seach?filter=tech va renvoyer "Search for category tech"
 
 
 AUTRE EXEMPLE QUERY STRING:
-```
+```ruby
 # config/routes.rb
 Rails.application.routes.draw do
     get "/products" => "products#index"
@@ -429,12 +429,12 @@ http://localhost:3000/products?filter=montagne va renvoyer "snowboard (montagne)
 ## dans la console rails: <a id="8"></a>
 
 pour creer du contenue exemple:
-```
+```ruby
 Product.create(name: "toto")
 ```
 
 ex: dans le controler je recupere tt:
-```
+```ruby
 @products = Product.all
 ```
 
@@ -933,7 +933,7 @@ rails generate devise:views
 ```
 
 pour avoir un message flash "vous etes co/déco" sur le layout, apres la navbar par exemple:
-```
+```html
 #app/views/layouts/application.html.erb
 <p class="notice"><%= notice %></p>
 <p class="notice"><%= alert %></p>
@@ -944,7 +944,7 @@ pour avoir un message flash "vous etes co/déco" sur le layout, apres la navbar 
 La politique la plus safe à utiliser est celle de la liste blanche. Par défaut, on interdit l’accès à toutes les pages pour les utilisateurs non connectés, et on ouvre certains accès uniquement.
 
 Cela se passe dans le fichier `app/controllers/application.controller.rb` en ajoutant la ligne :
-```
+```ruby
 # app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
   # [...]
@@ -953,7 +953,7 @@ end
 ```
 
 Maintenant, dans certains controlleurs, on peut décider que certaines actions soient accessibles pour un utilisateur non connecté. Par exemple, si on souhaite que la route `/about`, gérée par `PagesController#about`, on aura :
-```
+```ruby
 # app/controllers/pages_controller.rb
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :about ]
@@ -985,7 +985,7 @@ rails db:migrate
 ```
 
 N’oubliez pas de mettre à jour vos deux modèles :
-```
+```ruby
 # app/models/product.rb
 class Product < ApplicationRecord
   belongs_to :user
@@ -1005,7 +1005,7 @@ end
 ### Côté controlleur
 
 Au niveau du contrôlleur, on va utiliser le helper de Devise `current_user` pour associer automatiquement le produit nouvellement créé avec l’utilisateur actuellement connecté:
-```
+```ruby
 # app/controllers/products_controller.rb
 class ProductsController
   # [...]
