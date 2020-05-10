@@ -1823,12 +1823,14 @@ Si je veux donner un back-office à un client, je vais me pencher sur **ActiveAd
 Il faut protéger Rails Admin à des gens qui ne sont qu’admin en fait. Le plus simple:
 
 1. Générer une migration sur User
+
 ```
 rails g migration AddAdminToUsers admin:boolean
 rails db:migrate
 ```
 
 2. Protéger la route de Rails Admin
+
 ```ruby
 # in config/initializer/rails_admin.rb
 
@@ -1842,6 +1844,7 @@ end
 ```
 
 3. Passer un utilisateur admin
+
 ```
 rails c
 irb> user = User.find_by_email('leboss@laboite.com')
